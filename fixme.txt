@@ -1,0 +1,19 @@
+* Erros:
+
+1) Verificar porque o header não linka com o codigo fonte
+2) Separar a struct na pasta certa e linkar .c com .h
+
+* Precisa fazer:
+
+1) capitalize no titulo
+2) corrigir a entrada para que ela reconheça o input com char especial (~, ç, ,)
+5) Verificar total de livros
+6) ao cadastrar um livro, verificar se o titulo ja consta na estante
+
+* Tentei mas ainda não foi:
+
+3) consertar a UTF-8 no vscode -> nao esta funcionando com a persitência de dados
+
+* Feito:
+
+4) organizar como guarda a estrutura de forma mais eficaz

@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <string.h>
-#include "utils/headers.h"
-
+#include <locale.h>
+#include "utils/functions/functions.h"
+#include "utils/structs/structs.h"
 
 struct livros livro;
 
 int main(){
+	setlocale(LC_ALL, "Portuguese_Brazil");
 	int option;
 
 	do{
@@ -13,7 +15,7 @@ int main(){
 
 		switch (option){
 		case 1:
-			cadastrar_livro(livro);
+			cadastrar_livro();
 			break;
 
 		case 2:
@@ -21,7 +23,7 @@ int main(){
 			break;
 
 		case 3:
-			pegar_chave();
+			break;
 
 		case 0:
 			printf("Programa encerrado.");
