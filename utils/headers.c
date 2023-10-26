@@ -5,12 +5,13 @@ int menu(){
 	int op;
 	
 	printf("[1] - Cadastrar Livro\n");
+	printf("[2] - Ver Livros\n");
 	printf("[0] - Sair\n");
 	
 	return op;
 }
 
-void cadastrar_livro(struct livro livro1){
+void cadastrar_livro(struct livros livro1){
 	FILE *db;
 	db = fopen("database/teste.txt", "a");
 

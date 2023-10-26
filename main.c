@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <string.h>
-#include "headers.h"
+#include "utils/headers.h"
 
 
-struct livro livros;
+struct livros livro;
 
 int main(){
 	int option;
@@ -13,8 +13,15 @@ int main(){
 
 		switch (option){
 		case 1:
-			cadastrar_livro(livros);
+			cadastrar_livro(livro);
 			break;
+
+		case 2:
+			pegar_info();
+			break;
+
+		case 3:
+			pegar_chave();
 
 		case 0:
 			printf("Programa encerrado.");
@@ -24,6 +31,7 @@ int main(){
 		printf("Opcao invalida.");
 			break;
 		}
+
 	}while(option != 0);
 
 	
