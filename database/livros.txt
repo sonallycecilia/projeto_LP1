@@ -1,6 +1,3 @@
-A menina que roubava livros, nao sei, drama, 250
-Blade Runner, PKD, scifi, 300
-Acotar, naosei, fantasia, 250
-os despossuidos, ursula le guin, scifi, 304
-O homem do castelo alto, pkd, scifi, 304
-O Homem Invisivel, alguem, algum, 50144
+Blade Runner | Philip Kindred Dick | Ficcao Cientifica | 300
+Perifericos | William Gibson | Ficcao Cientifica | 584
+Ubik | Philip Kindred Dick | Ficcao Cientifica | 284
