@@ -122,6 +122,3 @@ int main()
 	pop(&pilhaPtr);
 	imprime_pilha(pilhaPtr);
 	
-}
-ling1_pilha.c
-Exibindo ling1_pilha.c…

@@ -19,6 +19,7 @@ int main(){
 			break;
 
 		case 2:
+			pegar_info();
 			break;
 
 		case 3:
