@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 struct st_livro{
 	char *titulo;
@@ -31,25 +32,31 @@ char *input_string(const char *txt){
     fflush(stdin);  //limpar o buffer 
     fgets(buffer, sizeof(buffer), stdin);
     buffer[strcspn(buffer, "\n")] = '\0';  //remove a quebra de linha, se houver
-    return strdup(buffer);
+    return strdup(buffer); //strdup duplica as strings e, em seguida, libere a memória alocada no final do programa ou quando não precisar mais das strings.
 }
 
-
-int validar_livro(){
-
+void title(char *string){
+    while(*string != '\0'){
+        *string = toupper(*string);
+        while(*string != ' ' && *string != '\0'){
+            string++;
+        }
+        string++;
+    }
 }
+
 
 void cadastrar_livro(){
     struct st_livro *novo_livro = malloc(sizeof(struct st_livro));
     if (novo_livro) {
-		int pgs;
-    
 		novo_livro -> titulo = input_string("Titulo");
+        title(novo_livro->titulo);
         novo_livro -> autor = input_string("Autor");
+        title(novo_livro->autor);
         novo_livro -> genero = input_string("Genero");
+        title(novo_livro->genero);
 		printf("Quantidade de paginas: ");
-    	scanf("%d", &pgs);
-		novo_livro -> qtd_paginas = pgs;
+    	scanf("%d", &novo_livro->qtd_paginas);
         novo_livro -> proxPtr_livro = NULL; //aqui vai ser modificado
 
         if (lista_livros == NULL) {
@@ -66,7 +73,7 @@ void cadastrar_livro(){
         FILE *db = fopen("database/livros.txt", "a");
         if (db){
 			printf("Livro cadastrado com sucesso.\n");
-            fprintf(db, "%s, %s, %s, %d\n", novo_livro->titulo, novo_livro->autor, novo_livro->genero, novo_livro->qtd_paginas);
+            fprintf(db, "%s | %s | %s | %d\n", novo_livro->titulo, novo_livro->autor, novo_livro->genero, novo_livro->qtd_paginas);
             fclose(db);
         } 
 		else{
@@ -86,10 +93,9 @@ void pegar_info(){
 	char linha[256];
 
 	if (db){
-		printf("oi");
 		while (fgets(linha, sizeof(linha), db)) {
-        	if (sscanf(linha, "%99[^,], %99[^,], %99[^,], %d", livro.titulo, livro.autor, livro.genero, &livro.qtd_paginas) == 4) {
-            	printf("Titulo: %s\nAutor: %s\nGenero: %s\nPaginas: %d\n\n\n", livro.titulo, livro.autor, livro.genero, livro.qtd_paginas);
+        	if (sscanf(linha, "%99[^|] | %99[^|] | %99[^|] | %d", livro.titulo, livro.autor, livro.genero, &livro.qtd_paginas) == 4) {
+            	printf("Titulo: %s\nAutor: %s\nGenero: %s\nPaginas: %d\n\n", livro.titulo, livro.autor, livro.genero, livro.qtd_paginas);
         } 
 		else {
             printf("Erro ao ler a linha: %s", linha);
