@@ -25,6 +25,10 @@ int menu(){
 	return op;
 }
 
+int verificar_pos_ordem_alfa(){
+    
+}
+
 
 char *input_string(const char *txt){
     char buffer[256];
@@ -35,7 +39,7 @@ char *input_string(const char *txt){
     return strdup(buffer); //strdup duplica as strings e, em seguida, libere a memória alocada no final do programa ou quando não precisar mais das strings.
 }
 
-void title(char *string){
+void formatar_titulo(char *string){
     while(*string != '\0'){
         *string = toupper(*string);
         while(*string != ' ' && *string != '\0'){
@@ -50,11 +54,11 @@ void cadastrar_livro(){
     struct st_livro *novo_livro = malloc(sizeof(struct st_livro));
     if (novo_livro) {
 		novo_livro -> titulo = input_string("Titulo");
-        title(novo_livro->titulo);
+        formatar_titulo(novo_livro->titulo);
         novo_livro -> autor = input_string("Autor");
-        title(novo_livro->autor);
+        formatar_titulo(novo_livro->autor);
         novo_livro -> genero = input_string("Genero");
-        title(novo_livro->genero);
+        formatar_titulo(novo_livro->genero);
 		printf("Quantidade de paginas: ");
     	scanf("%d", &novo_livro->qtd_paginas);
         novo_livro -> proxPtr_livro = NULL; //aqui vai ser modificado
@@ -94,7 +98,7 @@ void pegar_info(){
 
 	if (db){
 		while (fgets(linha, sizeof(linha), db)) {
-        	if (sscanf(linha, "%99[^|] | %99[^|] | %99[^|] | %d", livro.titulo, livro.autor, livro.genero, &livro.qtd_paginas) == 4) {
+        	if (sscanf(linha, "%[^|] | %[^|] | %[^|] | %d", livro.titulo, livro.autor, livro.genero, &livro.qtd_paginas) == 4) {
             	printf("Titulo: %s\nAutor: %s\nGenero: %s\nPaginas: %d\n\n", livro.titulo, livro.autor, livro.genero, livro.qtd_paginas);
         } 
 		else {
