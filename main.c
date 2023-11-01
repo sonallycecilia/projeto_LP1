@@ -4,7 +4,7 @@
 #include "utils/functions/functions.h"
 #include "utils/structs/structs.h"
 
-struct livros livro;
+struct st_livro livro;
 
 int main(){
 	setlocale(LC_ALL, "Portuguese_Brazil");
@@ -36,6 +36,5 @@ int main(){
 
 	}while(option != 0);
 
-	
 	return 0;
 }

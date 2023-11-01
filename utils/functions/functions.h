@@ -1,17 +1,16 @@
-#include <string.h>
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
-struct livros{
-	char titulo[100];
-	char autor[50];
-	char genero[50];
+struct st_livro{
+	char *titulo;
+	char *autor;
+	char *genero;
 	int qtd_paginas;
+	struct st_livro *proxPtr_livro;
 };
 
-struct livros livro1;
-int menu();
-void cadastrar_livro();
-void pegar_info();
+struct st_livro *lista_livros = NULL;
 
 int menu(){
 	int op;
@@ -26,72 +25,81 @@ int menu(){
 }
 
 
-void cadastrar_livro() {
-    FILE *db;
-    int res = 0;
+char *input_string(const char *txt){
+    char buffer[256];
+    printf("%s: ", txt);
+    fflush(stdin);  //limpar o buffer 
+    fgets(buffer, sizeof(buffer), stdin);
+    buffer[strcspn(buffer, "\n")] = '\0';  //remove a quebra de linha, se houver
+    return strdup(buffer);
+}
 
-    db = fopen("database/livros.txt", "a");
-    if (db) {
-        do {
-            printf("- Digite as informacoes do livro -");
 
-			getchar();
-			printf("\nTitulo: ");
-			fgets(livro1.titulo, 100, stdin);
-			livro1.titulo[strcspn(livro1.titulo, "\n")] = '\0';
+int validar_livro(){
 
-			printf("\nAutor: ");
-			fgets(livro1.autor, 50, stdin);
-			livro1.autor[strcspn(livro1.autor, "\n")] = '\0';
+}
 
-			printf("\nGenero: ");
-			fgets(livro1.genero, 50, stdin);
-			livro1.genero[strcspn(livro1.genero, "\n")] = '\0';
+void cadastrar_livro(){
+    struct st_livro *novo_livro = malloc(sizeof(struct st_livro));
+    if (novo_livro) {
+		int pgs;
+    
+		novo_livro -> titulo = input_string("Titulo");
+        novo_livro -> autor = input_string("Autor");
+        novo_livro -> genero = input_string("Genero");
+		printf("Quantidade de paginas: ");
+    	scanf("%d", &pgs);
+		novo_livro -> qtd_paginas = pgs;
+        novo_livro -> proxPtr_livro = NULL; //aqui vai ser modificado
 
-			printf("\nTotal de paginas: ");
-			scanf("%d", &livro1.qtd_paginas);
-
-            printf("- Confirme as informacoes -\n");
-            printf("Titulo: %s\n", livro1.titulo);
-            printf("Autor: %s\n", livro1.autor);
-            printf("Genero: %s\n", livro1.genero);
-            printf("Total de paginas: %d\n", livro1.qtd_paginas);
-
-            printf("Digite [0] - Nao / [1] - Sim: ");
-            scanf("%d", &res);
-			getchar();
-			
-			//ainda tem que add funcao de verificar repetido
-
-            if (res) {
-                fprintf(db, "%s, %s, %s, %d\n", livro1.titulo, livro1.autor, livro1.genero, livro1.qtd_paginas);
-                printf("Livro cadastrado com sucesso.\n");
-            } else {
-                printf("Cadastro de livro cancelado. Tente Novamente.\n");
+        if (lista_livros == NULL) {
+            lista_livros = novo_livro;
+        } 
+		else{
+            struct st_livro *atual = lista_livros;
+            while (atual -> proxPtr_livro != NULL){
+                atual = atual -> proxPtr_livro;
             }
-        } while (!res);
+            atual -> proxPtr_livro = novo_livro;
+        }
 
-        fclose(db);
-    } else {
-        printf("Base de dados não encontrada.\n");
+        FILE *db = fopen("database/livros.txt", "a");
+        if (db){
+			printf("Livro cadastrado com sucesso.\n");
+            fprintf(db, "%s, %s, %s, %d\n", novo_livro->titulo, novo_livro->autor, novo_livro->genero, novo_livro->qtd_paginas);
+            fclose(db);
+        } 
+		else{
+            printf("Não foi possivel abrir o arquivo de banco de dados.\n");
+        }
+    } 
+	else {
+        printf("Não ha espaço disponivel para o livro.\n");
     }
 }
 
 
 void pegar_info(){
 	FILE *db;
-	char c;
+	struct st_livro livro;
 	db = fopen("database/livros.txt", "r");
-	
-	if (db){
-		while((c = getc(db)) != EOF){
-			printf("%c", c);
-		}
-		fclose(db);
-	}
-	else{
-		printf("Base de dados nao encontrada\n");
-	}
+	char linha[256];
 
+	if (db){
+		printf("oi");
+		while (fgets(linha, sizeof(linha), db)) {
+        	if (sscanf(linha, "%99[^,], %99[^,], %99[^,], %d", livro.titulo, livro.autor, livro.genero, &livro.qtd_paginas) == 4) {
+            	printf("Titulo: %s\nAutor: %s\nGenero: %s\nPaginas: %d\n\n\n", livro.titulo, livro.autor, livro.genero, livro.qtd_paginas);
+        } 
+		else {
+            printf("Erro ao ler a linha: %s", linha);
+        }
+    }
+
+        fclose(db);
+    } 
+	else{
+        printf("Base de dados não encontrada\n");
+    }
 }
 
