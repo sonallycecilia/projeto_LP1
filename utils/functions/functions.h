@@ -10,6 +10,7 @@ struct st_livro
     char *autor;
     char *genero;
     int qtd_paginas;
+    int status;
     struct st_livro *proxPtr_livro;
 };
 
@@ -32,6 +33,8 @@ int menu()
     printf("[1] - Cadastrar Livro\n");
     printf("[2] - Ver livros\n");
     printf("[3] - Filtrar\n");
+    printf("[4] - Quantidade de livros na estante\n");
+
     printf("[0] - Sair\n");
     scanf("%d", &op);
 
@@ -199,6 +202,8 @@ void cadastrar_livro()
     struct st_livro *novo_livro = (struct st_livro *)malloc(sizeof(struct st_livro));
     if (novo_livro)
     {
+        char* confirmar;
+
         limpar_buffer();
         novo_livro->titulo = input_string("Titulo");
         capitalizar(novo_livro->titulo);
@@ -217,6 +222,21 @@ void cadastrar_livro()
         printf("Quantidade de paginas: ");
         scanf("%d", &novo_livro->qtd_paginas);
         novo_livro->proxPtr_livro = NULL;
+
+        printf("%s | %s | %s | %d\n", novo_livro->titulo, novo_livro->autor, novo_livro->genero, novo_livro->qtd_paginas);
+
+        printf("Os dados inseridos estão corretos?\n");
+
+        limpar_buffer();
+
+        confirmar = trim(input_string("Sim/Não: "));
+        capitalizar(confirmar);
+
+        if (!(strcmp(confirmar, "Sim") == 0))
+        {
+            free(novo_livro);
+            return;
+        }
 
         ordena_livros(novo_livro);
 
@@ -284,6 +304,15 @@ void pegar_info()
     }
 }
 
+int contar_livros(){
+    int cont = 0;
+    struct st_livro *atual = lista_livros;
+    while(atual != NULL){
+        cont++;
+        atual = atual->proxPtr_livro;
+    }
+    return cont;
+}
 /*
 ━┏━┓━━┏┓━━┏┓━━━━━━━━
 ━┃┏┛━━┃┃━┏┛┗┓━━━━━━━
@@ -323,7 +352,7 @@ void mostrar_genero(char *genero)
 void mostrar_generos_unicos()
 {
     int escolha;
-    char* palavra;
+    char *palavra;
     struct st_livro *livro_atual = lista_livros;
     char *generos[256];
     int count = 0;
@@ -349,7 +378,7 @@ void mostrar_generos_unicos()
     printf("Gêneros cadastrados:\n");
     for (int i = 0; i < count; i++)
     {
-        printf("    [%d]   %s\n", i+1, generos[i]);
+        printf("    [%d]   %s\n", i + 1, generos[i]);
     }
 
     limpar_buffer();
@@ -358,12 +387,11 @@ void mostrar_generos_unicos()
 
     if (escolha < count)
     {
-        mostrar_genero(trim(generos[escolha-1]));
+        mostrar_genero(trim(generos[escolha - 1]));
     }
     else
         printf("Gênero invalida.\n");
-		limpar_buffer();
-
+    limpar_buffer();
 }
 
 void mostrar_autores(char *autor)
@@ -409,7 +437,7 @@ void mostrar_autores_unicos()
     printf("Autores cadastrados:\n");
     for (int i = 0; i < count; i++)
     {
-        printf("    [%d]   %s\n", i+1, autores[i]);
+        printf("    [%d]   %s\n", i + 1, autores[i]);
     }
 
     limpar_buffer();
@@ -417,7 +445,7 @@ void mostrar_autores_unicos()
     scanf("%d", &escolha);
 
     if (escolha < count)
-        mostrar_autores(trim(autores[escolha-1]));
+        mostrar_autores(trim(autores[escolha - 1]));
     else
         printf("Autor invalida.\n");
 }
@@ -429,3 +457,14 @@ void filtrar(int filtro)
     else
         mostrar_autores_unicos();
 }
+
+/*
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┏┓━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┃┃━━━━━━━━━━━━━━
+┏━┓┏━━┓┏┓┏┓┏━━┓┏┓┏┓┏━━┓┏━┓━━━━┃┃━┏┓┏┓┏┓┏━┓┏━━┓
+┃┏┛┃┏┓┃┃┗┛┃┃┏┓┃┃┗┛┃┃┏┓┃┃┏┛━━━━┃┃━┣┫┃┗┛┃┃┏┛┃┏┓┃
+┃┃━┃┃━┫┃┃┃┃┃┗┛┃┗┓┏┛┃┃━┫┃┃━━━━━┃┗┓┃┃┗┓┏┛┃┃━┃┗┛┃
+┗┛━┗━━┛┗┻┻┛┗━━┛━┗┛━┗━━┛┗┛━━━━━┗━┛┗┛━┗┛━┗┛━┗━━┛
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+*/
+
