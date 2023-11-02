@@ -6,15 +6,19 @@
 
 struct st_livro livro;
 
-int main(){
+int main()
+{
 	carregar_livros();
 	setlocale(LC_ALL, "Portuguese_Brazil");
 	int option;
+	int filtro;
 
-	do{
+	do
+	{
 		option = menu();
 
-		switch (option){
+		switch (option)
+		{
 		case 1:
 			cadastrar_livro();
 			break;
@@ -24,6 +28,22 @@ int main(){
 			break;
 
 		case 3:
+			filtro = filtrar_m();
+			switch (filtro)
+			{
+			case 1:
+				filtrar(1);
+				break;
+
+			case 2:
+				filtrar(2);
+				break;
+
+			default:
+				printf("Opcao invalida.\n");
+				limpar_buffer();
+				break;
+			}
 			break;
 
 		case 0:
@@ -31,11 +51,12 @@ int main(){
 			break;
 
 		default:
-		printf("Opcao invalida.");
+			printf("Opcao invalida.\n");
+			limpar_buffer();
 			break;
 		}
 
-	}while(option != 0);
+	} while (option != 0);
 
 	return 0;
 }

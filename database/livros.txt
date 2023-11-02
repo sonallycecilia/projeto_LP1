@@ -1,9 +1,10 @@
-Alice   | Lewis   | Nd   | 200
-Blade Runner    | Philip Kindred Dick    | Ficcao Cientifica    | 300
-Coraline    | Naosei    | Algum    | 123
-Harry Potter    | Nao Sei    | Nao Sei    | 123
-Nos | Zamiatin  | Ficcao Cientifica | 304
-O Herói De Mil Faces  | Joseph Campbell  | Nd  | 300
+Alice | Lewis | Nd | 200
+As Cronicas | Leon Martin | Drama | 500
+Blade Runner | Philip Kindred Dick | Ficcao Cientifica | 300
+Coraline | Naosei | Algum | 123
+Harry Potter | Nao Sei | Nao Sei | 123
+Nos | Zamiatin | Ficcao Cientifica | 304
+O Herói De Mil Faces | Joseph Campbell | Nd | 300
 Perdido Em Marte | Philip Kindred Dick | Ficcao Cientifica | 302
-Perifericos    | William Gibson    | Ficcao Cientifica    | 584
-Ubik    | Philip Kindred Dick    | Ficcao Cientifica    | 284
+Perifericos | William Gibson | Ficcao Cientifica | 584
+Ubik | Philip Kindred Dick | Ficcao Cientifica | 284
