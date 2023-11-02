@@ -7,6 +7,7 @@
 struct st_livro livro;
 
 int main(){
+	carregar_livros();
 	setlocale(LC_ALL, "Portuguese_Brazil");
 	int option;
 
