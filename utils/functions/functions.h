@@ -51,7 +51,8 @@ void formatar_titulo(char *string){
 
 
 void cadastrar_livro(){
-    struct st_livro *novo_livro = malloc(sizeof(struct st_livro));
+   struct st_livro* novo_livro = (struct st_livro*) malloc(sizeof(struct st_livro)); //mudei
+   //struct st_livro *novo_livro = malloc(sizeof(struct st_livro));
     if (novo_livro) {
 		novo_livro -> titulo = input_string("Titulo");
         formatar_titulo(novo_livro->titulo);
