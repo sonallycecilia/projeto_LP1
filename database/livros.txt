@@ -1,5 +1,7 @@
-Blade Runner | Philip Kindred Dick | Ficcao Cientifica | 300
-Perifericos | William Gibson | Ficcao Cientifica | 584
-Ubik | Philip Kindred Dick | Ficcao Cientifica | 284
-Coraline | Naosei | Algum | 123
-Harry Potter | Nao Sei | Nao Sei | 123
+Alice  | Lewis  | Nd  | 200
+Blade Runner   | Philip Kindred Dick   | Ficcao Cientifica   | 300
+Coraline   | Naosei   | Algum   | 123
+Harry Potter   | Nao Sei   | Nao Sei   | 123
+O Herói De Mil Faces | Joseph Campbell | Nd | 300
+Perifericos   | William Gibson   | Ficcao Cientifica   | 584
+Ubik   | Philip Kindred Dick   | Ficcao Cientifica   | 284
