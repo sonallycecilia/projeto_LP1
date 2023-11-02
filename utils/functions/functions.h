@@ -229,7 +229,7 @@ void cadastrar_livro()
 
         limpar_buffer();
 
-        confirmar = trim(input_string("Sim/Não: "));
+        confirmar = trim(input_string("Sim/Não "));
         capitalizar(confirmar);
 
         if (!(strcmp(confirmar, "Sim") == 0))
@@ -237,26 +237,14 @@ void cadastrar_livro()
             free(novo_livro);
             return;
         }
-
+        printf("Livro cadastrado com sucesso.\n");
         ordena_livros(novo_livro);
-
-        FILE *db = fopen("database/livros.txt", "a");
-        if (db)
-        {
-            printf("Livro cadastrado com sucesso.\n");
-            fprintf(db, "%s | %s | %s | %d\n", novo_livro->titulo, novo_livro->autor, novo_livro->genero, novo_livro->qtd_paginas);
-            fclose(db);
-        }
-        else
-        {
-            printf("Não foi possivel abrir o arquivo de banco de dados.\n");
-        }
+        gravar_livros();
     }
     else
     {
         printf("Não ha espaço disponivel para o livro.\n");
     }
-    gravar_livros();
 }
 
 /*
@@ -393,7 +381,6 @@ void mostrar_generos_unicos()
     }
     else
         printf("Gênero invalida.\n");
-    limpar_buffer();
 }
 
 void mostrar_autores(char *autor)
@@ -469,23 +456,6 @@ void filtrar(int filtro)
 ┗┛━┗━━┛┗┻┻┛┗━━┛━┗┛━┗━━┛┗┛━━━━━┗━┛┗┛━┗┛━┗┛━┗━━┛
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
-
-struct st_livro *procurar_livro(char *titulo)
-{
-    struct st_livro *livro_atual = lista_livros;
-
-    while (livro_atual != NULL)
-    {
-        if (strcmp(livro_atual->titulo, titulo) == 0)
-        {
-            return livro_atual;
-        }
-
-        livro_atual = livro_atual->proxPtr_livro;
-    }
-
-    return NULL;
-}
 
 void remover_livro()
 {

@@ -2,8 +2,11 @@ A Morte De Alguem | Claudio | Nd | 300
 Alice | Lewis | Nd | 200
 As Cronicas | Leon Martin | Drama | 500
 Blade Runner | Philip Kindred Dick | Ficcao Cientifica | 300
+Carlo | Carlo | Nd | 200
 Coraline | Naosei | Algum | 123
 Harry Potter | Nao Sei | Nao Sei | 123
+Limãozito | Cleber | Nd | 200
+Morte | Linc | Nd | 200
 Nos | Zamiatin | Ficcao Cientifica | 304
 O Herói De Mil Faces | Joseph Campbell | Nd | 300
 Olo | Nam | Cabe | 21
