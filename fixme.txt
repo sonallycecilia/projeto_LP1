@@ -9,8 +9,9 @@
 6) ao cadastrar um livro, verificar se o titulo ja consta na estante
 7) Filtrar
 8) Organizar menu
+9) confirmar informações do livro, antes de cadastrar
 
-* Tentei mas ainda não foi:
+* Tentei mas não foi:
 
 3) consertar a UTF-8 no vscode -> nao esta funcionando com a persitência de dados
 2) corrigir a entrada para que ela reconheça o input com char especial (~, ç, ,)
