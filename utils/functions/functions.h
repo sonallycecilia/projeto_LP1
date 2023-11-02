@@ -42,7 +42,7 @@ char *input_string(const char *txt)
     fflush(stdin); // limpar o buffer
     fgets(buffer, sizeof(buffer), stdin);
     buffer[strcspn(buffer, "\n")] = '\0'; // remove a quebra de linha, se houver
-    return strdup(buffer);                // strdup duplica as strings e, em seguida, libere a memória alocada no final do programa ou quando não precisar mais das strings.
+    return strdup(buffer); // strdup duplica as strings e, em seguida, libere a memória alocada no final do programa ou quando não precisar mais das strings.
 }
 
 void formatar_titulo(char *string)
