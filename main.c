@@ -46,6 +46,10 @@ int main()
 			}
 			break;
 
+		case 4:
+			printf("Temos %d livro(s) na estante.\n", contar_livros());
+			break;
+
 		case 0:
 			printf("Programa encerrado.");
 			break;
