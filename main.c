@@ -50,6 +50,9 @@ int main()
 			printf("Temos %d livro(s) na estante.\n", contar_livros());
 			break;
 
+		case 5:
+			remover_livro();
+			break;
 		case 0:
 			printf("Programa encerrado.");
 			break;
