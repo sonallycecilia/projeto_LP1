@@ -33,8 +33,8 @@ int menu()
     printf("[1] - Cadastrar Livro\n");
     printf("[2] - Ver livros\n");
     printf("[3] - Filtrar\n");
-    printf("[4] - Quantidade de livros na estante\n");
-
+    printf("[4] - Quantidade de Livros na Estante\n");
+    printf("[5] - Remover Elemento\n");
     printf("[0] - Sair\n");
     scanf("%d", &op);
 
@@ -202,7 +202,7 @@ void cadastrar_livro()
     struct st_livro *novo_livro = (struct st_livro *)malloc(sizeof(struct st_livro));
     if (novo_livro)
     {
-        char* confirmar;
+        char *confirmar;
 
         limpar_buffer();
         novo_livro->titulo = input_string("Titulo");
@@ -304,10 +304,12 @@ void pegar_info()
     }
 }
 
-int contar_livros(){
+int contar_livros()
+{
     int cont = 0;
     struct st_livro *atual = lista_livros;
-    while(atual != NULL){
+    while (atual != NULL)
+    {
         cont++;
         atual = atual->proxPtr_livro;
     }
@@ -468,3 +470,60 @@ void filtrar(int filtro)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
+struct st_livro *procurar_livro(char *titulo)
+{
+    struct st_livro *livro_atual = lista_livros;
+
+    while (livro_atual != NULL)
+    {
+        if (strcmp(livro_atual->titulo, titulo) == 0)
+        {
+            return livro_atual;
+        }
+
+        livro_atual = livro_atual->proxPtr_livro;
+    }
+
+    return NULL;
+}
+
+void remover_livro()
+{
+    char *titulo;
+    char *autor;
+
+    limpar_buffer();
+
+    titulo = input_string("Digite o título do livro que deseja remover");
+    capitalizar(titulo);
+
+    autor = input_string("Qual o autor?");
+    capitalizar(autor);
+
+    struct st_livro *livro_atual = lista_livros, *prev = NULL;
+
+    while (livro_atual != NULL)
+    {
+        if (strcmp(livro_atual->titulo, titulo) == 0 && strcmp(livro_atual->autor, autor) == 0)
+        {
+            if (prev == NULL)
+            {
+                lista_livros = livro_atual->proxPtr_livro;
+            }
+            else
+            {
+                prev->proxPtr_livro = livro_atual->proxPtr_livro;
+            }
+
+            free(livro_atual);
+            printf("Livro removido com sucesso.\n");
+            gravar_livros();
+            return;
+        }
+
+        prev = livro_atual;
+        livro_atual = livro_atual->proxPtr_livro;
+    }
+
+    printf("Livro não encontrado.\n");
+}
