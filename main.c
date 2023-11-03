@@ -2,7 +2,6 @@
 #include <string.h>
 #include <locale.h>
 #include "utils/functions/functions.h"
-#include "utils/structs/structs.h"
 
 struct st_livro livro;
 
