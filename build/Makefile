@@ -176,6 +176,30 @@ utils/functions/functions.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\meuPrograma.dir\build.make CMakeFiles/meuPrograma.dir/utils/functions/functions.c.s
 .PHONY : utils/functions/functions.c.s
 
+utils/structs/structs.obj: utils/structs/structs.c.obj
+.PHONY : utils/structs/structs.obj
+
+# target to build an object file
+utils/structs/structs.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meuPrograma.dir\build.make CMakeFiles/meuPrograma.dir/utils/structs/structs.c.obj
+.PHONY : utils/structs/structs.c.obj
+
+utils/structs/structs.i: utils/structs/structs.c.i
+.PHONY : utils/structs/structs.i
+
+# target to preprocess a source file
+utils/structs/structs.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meuPrograma.dir\build.make CMakeFiles/meuPrograma.dir/utils/structs/structs.c.i
+.PHONY : utils/structs/structs.c.i
+
+utils/structs/structs.s: utils/structs/structs.c.s
+.PHONY : utils/structs/structs.s
+
+# target to generate assembly for a file
+utils/structs/structs.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\meuPrograma.dir\build.make CMakeFiles/meuPrograma.dir/utils/structs/structs.c.s
+.PHONY : utils/structs/structs.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -191,6 +215,9 @@ help:
 	@echo ... utils/functions/functions.obj
 	@echo ... utils/functions/functions.i
 	@echo ... utils/functions/functions.s
+	@echo ... utils/structs/structs.obj
+	@echo ... utils/structs/structs.i
+	@echo ... utils/structs/structs.s
 .PHONY : help
 
 

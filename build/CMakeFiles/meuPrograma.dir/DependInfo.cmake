@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/sonal_rkyba0o/OneDrive/Documentos/GitHub/projeto_klaudio/main.c" "CMakeFiles/meuPrograma.dir/main.c.obj" "gcc" "CMakeFiles/meuPrograma.dir/main.c.obj.d"
   "C:/Users/sonal_rkyba0o/OneDrive/Documentos/GitHub/projeto_klaudio/utils/functions/functions.c" "CMakeFiles/meuPrograma.dir/utils/functions/functions.c.obj" "gcc" "CMakeFiles/meuPrograma.dir/utils/functions/functions.c.obj.d"
+  "C:/Users/sonal_rkyba0o/OneDrive/Documentos/GitHub/projeto_klaudio/utils/structs/structs.c" "CMakeFiles/meuPrograma.dir/utils/structs/structs.c.obj" "gcc" "CMakeFiles/meuPrograma.dir/utils/structs/structs.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

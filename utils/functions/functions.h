@@ -4,22 +4,6 @@
 #include <ctype.h>
 #include <stdbool.h>
 
-//struct
-#ifndef LIVRO_H
-#define LIVRO_H
-
-struct st_livro {
-    char *titulo;
-    char *autor;
-    char *genero;
-    int qtd_paginas;
-    int status;
-    struct st_livro *proxPtr_livro;
-
-};
-
-#endif
-
 // genericos
 int menu(void);
 void limpar_buffer(void);

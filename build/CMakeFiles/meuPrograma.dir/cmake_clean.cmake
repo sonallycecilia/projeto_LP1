@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/meuPrograma.dir/main.c.obj.d"
   "CMakeFiles/meuPrograma.dir/utils/functions/functions.c.obj"
   "CMakeFiles/meuPrograma.dir/utils/functions/functions.c.obj.d"
+  "CMakeFiles/meuPrograma.dir/utils/structs/structs.c.obj"
+  "CMakeFiles/meuPrograma.dir/utils/structs/structs.c.obj.d"
   "libmeuPrograma.dll.a"
   "meuPrograma.exe"
   "meuPrograma.exe.manifest"
