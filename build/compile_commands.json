@@ -1,0 +1,14 @@
+[
+{
+  "directory": "C:/Users/sonal_rkyba0o/OneDrive/Documentos/GitHub/projeto_klaudio/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe   -g -o CMakeFiles\\meuPrograma.dir\\utils\\functions\\functions.c.obj -c C:\\Users\\sonal_rkyba0o\\OneDrive\\Documentos\\GitHub\\projeto_klaudio\\utils\\functions\\functions.c",
+  "file": "C:/Users/sonal_rkyba0o/OneDrive/Documentos/GitHub/projeto_klaudio/utils/functions/functions.c",
+  "output": "CMakeFiles/meuPrograma.dir/utils/functions/functions.c.obj"
+},
+{
+  "directory": "C:/Users/sonal_rkyba0o/OneDrive/Documentos/GitHub/projeto_klaudio/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe   -g -o CMakeFiles\\meuPrograma.dir\\main.c.obj -c C:\\Users\\sonal_rkyba0o\\OneDrive\\Documentos\\GitHub\\projeto_klaudio\\main.c",
+  "file": "C:/Users/sonal_rkyba0o/OneDrive/Documentos/GitHub/projeto_klaudio/main.c",
+  "output": "CMakeFiles/meuPrograma.dir/main.c.obj"
+}
+]

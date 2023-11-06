@@ -1,0 +1,3 @@
+C:/Users/sonal_rkyba0o/OneDrive/Documentos/GitHub/projeto_klaudio/build/CMakeFiles/meuPrograma.dir
+C:/Users/sonal_rkyba0o/OneDrive/Documentos/GitHub/projeto_klaudio/build/CMakeFiles/edit_cache.dir
+C:/Users/sonal_rkyba0o/OneDrive/Documentos/GitHub/projeto_klaudio/build/CMakeFiles/rebuild_cache.dir
