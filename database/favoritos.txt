@@ -2,3 +2,4 @@ Alice | Lewis | Nd | 200
 As Cronicas | Leon Martin | Drama | 500
 Blade Runner | Philip Kindred Dick | Ficcao Cientifica | 300
 Bob Dylan | Carrie | Terror | 200
+Ubik | Philip Kindred Dick | Ficcao Cientifica | 284
