@@ -1,7 +1,5 @@
 * Erros:
 
-1) Verificar porque o header não linka com o codigo fonte
-2) Separar a struct na pasta certa e linkar .c com .h
 
 * Precisa fazer:
 

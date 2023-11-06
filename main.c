@@ -8,9 +8,13 @@ struct st_livro livro;
 int main()
 {
 	carregar_livros();
+	carregar_favoritos();
+
 	setlocale(LC_ALL, "Portuguese_Brazil");
 	int option;
+	int ver;
 	int filtro;
+	int favorito;
 
 	do
 	{
@@ -23,45 +27,90 @@ int main()
 			break;
 
 		case 2:
-			pegar_info();
+			do
+			{
+				ver = ver_menu();
+
+				switch (ver)
+				{
+				case 1:
+					pegar_info();
+					break;
+				case 2:
+					printf("Temos %d livro(s) na estante.\n", contar_livros());
+					break;
+
+				case 0:
+					printf("Voltando para o menu.\n");
+					break;
+				default:
+					printf("Opcao invalida.\n");
+					break;
+				}
+			} while (ver != 0);
 			break;
 
 		case 3:
-			filtro = filtrar_m();
-			switch (filtro)
+			do
 			{
-			case 1:
-				filtrar(1);
-				break;
+				filtro = filtrar_m();
+				switch (filtro)
+				{
+				case 1:
+					filtrar(1);
+					break;
 
-			case 2:
-				filtrar(2);
-				break;
+				case 2:
+					filtrar(2);
+					break;
+				case 3:
+					filtrar(3);
+					break;
 
-			default:
-				printf("Opcao invalida.\n");
-				limpar_buffer();
-				break;
-			}
+				case 0:
+					printf("Voltando para o menu.\n");
+					break;
+				default:
+					printf("Opcao invalida.\n");
+					break;
+				}
+			} while (filtro != 0);
 			break;
-
 		case 4:
-			printf("Temos %d livro(s) na estante.\n", contar_livros());
+			do
+			{
+				favorito = favorito_m();
+				switch (favorito)
+				{
+				case 1:
+					pre_add_favorito();
+					break;
+
+				case 2:
+					pre_remover_favorito();
+					break;
+
+				case 0:
+					printf("Voltando para o menu.\n");
+					break;
+				default:
+					printf("Opcao invalida.\n");
+					break;
+				}
+			} while (favorito != 0);
 			break;
 
 		case 5:
 			remover_livro();
 			break;
 		case 0:
-			printf("Programa encerrado.");
+			printf("Programa encerrado.\n");
 			break;
 
 		default:
 			printf("Opcao invalida.\n");
-			limpar_buffer();
 			break;
 		}
-
 	} while (option != 0);
 
 	return 0;
