@@ -4,38 +4,39 @@ MENU
 ***
 
 **1. Cadastrar Livro**
-Titulo
-Autor
-Gênero
-Quantidade de Páginas
-Status
-Favorito (se for marcado como lido)
+* ~~Titulo~~
+* ~~Autor~~
+* ~~Gênero~~
+* ~~Quantidade de Páginas~~
+* Status
+* Favorito (se for marcado como lido)
 
 
 **2. Estante**
-* Vizualizar Livros
-* Total de Livros
+* ~~Vizualizar Livros~~
+* ~~Total de Livros~~
 * Sortear Leitura
 * Escolher mais antigo (se der tempo)
-* Remover Livro
+* ~~Remover Livro~~
 * Editar Status
 * Voltar
 
 
 **3. Filtrar**
-* Gênero 
-* Autor
-* Titulo
+* ~~Gênero~~
+* ~~Autor~~
+* ~~Titulo~~
 * Status
     * Lido
     * Quero Ler
     * Abandonado
+* Voltar
 
 
 **4. Favoritos**
-* Adicionar Livro Favorito
-* Vizualizar Favoritos
-* Remover Favorito
+* ~~Adicionar Livro Favorito~~
+* ~~Vizualizar Favoritos~~
+* ~~Remover Favorito~~
 
 
 **5. Coleções**
