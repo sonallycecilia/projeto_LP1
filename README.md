@@ -1,15 +1,15 @@
 # Estante Ixculashada #
 
 MENU
----
+***
 
 **1. Cadastrar Livro**
-    Titulo
-    Autor
-    Gênero
-    Quantidade de Páginas
-    Status
-        Favorito (se for marcado como lido)
+Titulo
+Autor
+Gênero
+Quantidade de Páginas
+Status
+Favorito (se for marcado como lido)
 
 
 **2. Estante**
