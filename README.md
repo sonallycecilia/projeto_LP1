@@ -9,6 +9,7 @@ MENU
 * ~~Gênero~~
 * ~~Quantidade de Páginas~~
 * Status
+* ~~Confirmar Informações~~
 * Favorito (se for marcado como lido)
 
 
@@ -37,6 +38,7 @@ MENU
 * ~~Adicionar Livro Favorito~~
 * ~~Vizualizar Favoritos~~
 * ~~Remover Favorito~~
+* Voltar
 
 
 **5. Coleções**
@@ -47,6 +49,7 @@ MENU
 * Criar Coleção
     * Nome da coleção
     * Adicionar titulo (indice)
+* Voltar
 
 
 
