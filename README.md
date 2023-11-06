@@ -4,12 +4,12 @@ MENU
 ---
 
 **1. Cadastrar Livro**
-    *Titulo*
-    *Autor*
-    *Gênero*
-    *Quantidade de Páginas*
-    *Status*
-        * Favorito
+    Titulo
+    Autor
+    Gênero
+    Quantidade de Páginas
+    Status
+        Favorito (se for marcado como lido)
 
 
 **2. Estante**
@@ -44,8 +44,8 @@ MENU
     * Excluir Livro
     * Adicionar Livro
 * Criar Coleção
-    *Nome da coleção*
-    *Adicionar titulo (indice)*
+    Nome da coleção
+    Adicionar titulo (indice)
 
 
 
