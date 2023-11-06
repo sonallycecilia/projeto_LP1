@@ -45,8 +45,8 @@ MENU
     * Excluir Livro
     * Adicionar Livro
 * Criar Coleção
-    Nome da coleção
-    Adicionar titulo (indice)
+    * Nome da coleção
+    * Adicionar titulo (indice)
 
 
 
