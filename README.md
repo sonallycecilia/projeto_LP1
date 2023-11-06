@@ -4,12 +4,13 @@ MENU
 ---
 
 **1. Cadastrar Livro**
-*Titulo*
-*Autor*
-*Gênero*
-*Quantidade de Páginas*
-*Status*
-    * Favorito
+    *Titulo*
+    *Autor*
+    *Gênero*
+    *Quantidade de Páginas*
+    *Status*
+        * Favorito
+
 
 **2. Estante**
 * Vizualizar Livros
@@ -20,6 +21,7 @@ MENU
 * Editar Status
 * Voltar
 
+
 **3. Filtrar**
 * Gênero 
 * Autor
@@ -29,10 +31,12 @@ MENU
     * Quero Ler
     * Abandonado
 
+
 **4. Favoritos**
 * Adicionar Livro Favorito
 * Vizualizar Favoritos
 * Remover Favorito
+
 
 **5. Coleções**
 * Vizualizar Coleções 
