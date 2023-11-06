@@ -1,15 +1,20 @@
-A Morte De Alguem | Claudio | Nd | 300
 Alice | Lewis | Nd | 200
+Amona | Amora | Romance | 200
 As Cronicas | Leon Martin | Drama | 500
 Blade Runner | Philip Kindred Dick | Ficcao Cientifica | 300
 Bob Dylan | Carrie | Terror | 200
+Caçador De Pipas | Nlembro | Nd | 200
+Cleber | Lius | Nd | 200
 Coraline | Naosei | Algum | 123
 Harry Potter | Nao Sei | Nao Sei | 123
+Jantar | Raphael | Suspense | 300
 Limãozito | Cleber | Nd | 200
+Livru | Cleber | Drama | 200
 Morte | Linc | Nd | 200
 Nos | Zamiatin | Ficcao Cientifica | 304
 O Herói De Mil Faces | Joseph Campbell | Nd | 300
 Olo | Nam | Cabe | 21
 Perdido Em Marte | Philip Kindred Dick | Ficcao Cientifica | 302
 Perifericos | William Gibson | Ficcao Cientifica | 584
+Suicidas | Rafael | Suspense | 390
 Ubik | Philip Kindred Dick | Ficcao Cientifica | 284
