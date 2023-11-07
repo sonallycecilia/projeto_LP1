@@ -7,12 +7,11 @@ struct st_livro livro;
 
 int main()
 {
-	carregar_livros();
-	carregar_favoritos();
+	carregar_dados();
 
 	setlocale(LC_ALL, "Portuguese");
 	int option;
-	int ver;
+	int estante;
 	int filtro;
 	int favorito;
 
@@ -29,9 +28,9 @@ int main()
 		case 2:
 			do
 			{
-				ver = ver_menu();
+				estante = estante_menu();
 
-				switch (ver)
+				switch (estante)
 				{
 				case 1:
 					visualizar_livros();
@@ -53,13 +52,13 @@ int main()
 					printf("Opcao invalida.\n");
 					break;
 				}
-			} while (ver != 0);
+			} while (estante != 0);
 			break;
 
 		case 3:
 			do
 			{
-				filtro = filtrar_m();
+				filtro = filtrar_menu();
 				switch (filtro)
 				{
 				case 1:
@@ -83,11 +82,11 @@ int main()
 				}
 			} while (filtro != 0);
 			break;
-			
+
 		case 4:
 			do
 			{
-				favorito = favorito_m();
+				favorito = favorito_menu();
 				switch (favorito)
 				{
 				case 1:
