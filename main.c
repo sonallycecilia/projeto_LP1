@@ -10,7 +10,7 @@ int main()
 	carregar_livros();
 	carregar_favoritos();
 
-	setlocale(LC_ALL, "Portuguese_Brazil");
+	setlocale(LC_ALL, "Portuguese");
 	int option;
 	int ver;
 	int filtro;
@@ -34,10 +34,16 @@ int main()
 				switch (ver)
 				{
 				case 1:
-					pegar_info();
+					visualizar_livros();
 					break;
 				case 2:
 					printf("Temos %d livro(s) na estante.\n", contar_livros());
+					break;
+				case 3:
+					editar_status();
+					break;
+				case 4:
+					remover_livro();
 					break;
 
 				case 0:
@@ -59,14 +65,15 @@ int main()
 				case 1:
 					filtrar(1);
 					break;
-
 				case 2:
 					filtrar(2);
 					break;
 				case 3:
 					filtrar(3);
 					break;
-
+				case 4:
+					filtrar(4);
+					break;
 				case 0:
 					printf("Voltando para o menu.\n");
 					break;
@@ -76,6 +83,7 @@ int main()
 				}
 			} while (filtro != 0);
 			break;
+			
 		case 4:
 			do
 			{
@@ -100,9 +108,6 @@ int main()
 			} while (favorito != 0);
 			break;
 
-		case 5:
-			remover_livro();
-			break;
 		case 0:
 			printf("Programa encerrado.\n");
 			break;

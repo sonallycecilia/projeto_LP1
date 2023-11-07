@@ -14,12 +14,12 @@ struct st_livro
     char *autor;
     char *genero;
     int qtd_paginas;
-    int status;
+    char *status;
     struct st_livro *proxPtr_livro;
 };
 struct favoritos
 {
-    struct st_livro *item;
+    struct st_livro *livro;
     struct favoritos *proxPtr_favorito;
 };
 #endif
@@ -35,7 +35,7 @@ bool livro_existe(struct st_livro *novo_livro);
 // cadastrar
 void ordena_livros(struct st_livro *novo_livro);
 void carregar_livros(void);
-void gravar_livros(void);
+void armazenar_livros_db(void);
 void cadastrar_livro(void);
 
 // favoritos
@@ -54,14 +54,15 @@ void ver_favoritos(void);
 
 // ver informação
 int ver_menu(void);
-void pegar_info(void);
+void visualizar_livros(void);
 int contar_livros(void);
+void editar_status(void);
 
 // filtrar
 int filtrar_m(void);
-void mostrar_genero(char *genero);
+void mostrar_livros_genero(char *genero);
 void mostrar_generos_unicos(void);
-void mostrar_autores(char *autor);
+void mostrar_livros_autor(char *autor);
 void mostrar_autores_unicos(void);
 void filtrar(int filtro);
 
