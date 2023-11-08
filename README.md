@@ -1,55 +1,57 @@
-# Biblioteca Pessoal #
----
-**MENU**
+# Estante Ixculashada #
 
-1. Livros Terminados
-    * Listar
-    * Escolher Releitura
-    * Voltar
+MENU
+***
 
-2. Livros Não Iniciados
-    * Listar [x]
-    * Sortear Leitura
-    * Escolher mais antigo (se der tempo)
-    * Desapegar (excluir)
-    * Adicionar Livro [x]
-    * Voltar
+**1. Cadastrar Livro**
+* ~~Titulo~~
+* ~~Autor~~
+* ~~Gênero~~
+* ~~Quantidade de Páginas~~
+* Status
+* ~~Confirmar Informações~~
+* Favorito (se for marcado como lido)
 
-3. Leituras em Andamento
-    * Listar
-    * Terminar
-    * Abandonar
-    * Voltar
 
-4. Desejados
-    * Listar
-    * Adicionar 
-    * Riscar
-    * Voltar
+**2. Estante**
+* ~~Vizualizar Livros~~
+* ~~Total de Livros~~
+* Sortear Leitura
+* Escolher mais antigo (se der tempo)
+* ~~Remover Livro~~
+* Editar Status
+* Voltar
 
-5. Abandonados
-    * Listar
-    * Resgatar Titulo
-    * Voltar
 
-6. Favoritos
-    * Listar
-    * Adicionar
-    * Remover
-    * Voltar
+**3. Filtrar**
+* ~~Gênero~~
+* ~~Autor~~
+* ~~Titulo~~
+* Status
+    * Lido
+    * Quero Ler
+    * Abandonado
+* Voltar
 
-7. Coleções
-    * Listar
-        * Detalhar
-        * Modificar
-            * Adicionar
-            * Remover
-    * Criar Coleção
 
-8. Filtrar
-    * Por Titulo
-    * Por Autor
-    * Por Gênero
+**4. Favoritos**
+* ~~Adicionar Livro Favorito~~
+* ~~Vizualizar Favoritos~~
+* ~~Remover Favorito~~
+* Voltar
+
+
+**5. Coleções**
+* Vizualizar Coleções 
+    * Modificar Coleção (por indice)
+    * Excluir Livro
+    * Adicionar Livro
+* Criar Coleção
+    * Nome da coleção
+    * Adicionar titulo (indice)
+* Voltar
+
+
 
 
 

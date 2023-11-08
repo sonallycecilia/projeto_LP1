@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "functions.h": "c",
-        "stdio.h": "c",
-        "structs.h": "c",
-        "string.h": "c",
-        "locale.h": "c"
-    }
-}
