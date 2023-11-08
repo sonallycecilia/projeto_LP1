@@ -12,7 +12,7 @@ struct favoritos *favoritos = NULL;
  ▄▀  ██▀ █▄ █ ██▀ █▀▄ █ ▄▀▀ ▄▀▄ ▄▀▀
  ▀▄█ █▄▄ █ ▀█ █▄▄ █▀▄ █ ▀▄▄ █▀█ ▄██
 */
-void carregar_dados()
+void carregar_dados()//carrega as informações que estao no bd(tanto de livros quanto de favoritos) para as listas de livros e favoritos
 {
     FILE *db = fopen("database/livros.txt", "r");
     char linha[256], titulo[256], autor[256], genero[256], status[256];
@@ -78,7 +78,7 @@ void carregar_dados()
     }
 }
 
-void limpar_buffer()
+void limpar_buffer() 
 {
     int c;
     while ((c = getchar()) != '\n' && c != EOF)
@@ -96,7 +96,7 @@ char *input_string(const char *txt) // sonally
     return strdup(buffer);                // strdup duplica as strings e, em seguida, libere a memória alocada no final do programa ou quando não precisar mais das strings.
 }
 
-char *formatar_entrada(char *str) // remove espaços em branco
+char *formatar_entrada(char *str) // capitaliza a(s) palavra(s) e remove os espaços em branco
 {
     char *end;
     while (isspace((unsigned char)*str))
@@ -115,7 +115,7 @@ char *formatar_entrada(char *str) // remove espaços em branco
     return str;
 }
 
-struct st_livro *buscar_livro(char *titulo, char *autor)
+struct st_livro *buscar_livro(char *titulo, char *autor) // busca o livro na estante por meio do titulo e autor passados, essa função retorna o livro.
 {
     struct st_livro *atual = lista_livros;
 
@@ -142,7 +142,7 @@ int menu()
     int op;
 
     printf("\n====================================\n"
-           "=          MENU DE OPÇÕES          =\n"
+           "=               MENU               =\n"
            "====================================\n"
            "= [1] - Cadastrar Livro            =\n"
            "= [2] - Sobre a Estante            =\n"
@@ -150,7 +150,7 @@ int menu()
            "= [4] - Favoritos                  =\n"
            "= [0] - Sair                       =\n"
            "====================================\n\n");
-    input = input_string("Digite a opção desejada");
+    input = input_string("Digite a opcao desejada");
 
     if (strspn(input, "0123456789\n") == strlen(input)) // strspn conta quantos digitos de 0 a 9 existe no input e dps compara com o o tamanho da string, se for igual entao o input é valido
         op = atoi(input);                               // converte para inteiro
@@ -171,7 +171,6 @@ int status_menu()
            "= [1] - Lido                       =\n"
            "= [2] - Quero ler                  =\n"
            "= [3] - Abandonado                 =\n"
-           "= [0] - Voltar                     =\n"
            "====================================\n"
            "\n");
 
@@ -191,9 +190,9 @@ int estante_menu()
 
     printf("\n"
            "====================================\n"
-           "=          MENU DE OPÇÕES          =\n"
+           "=           MENU ESTANTE           =\n"
            "====================================\n"
-           "= [1] - Ver livros                 =\n"
+           "= [1] - Visualizar livros          =\n"
            "= [2] - Quantidade de livros na    =\n"
            "=       Estante                    =\n"
            "= [3] - Editar Status              =\n"
@@ -202,7 +201,7 @@ int estante_menu()
            "====================================\n"
            "\n");
 
-    input = input_string("Digite a opção desejada");
+    input = input_string("Digite a opcao desejada");
 
     if (strspn(input, "0123456789\n") == strlen(input))
         op = atoi(input);
@@ -221,13 +220,13 @@ int filtrar_menu()
            "=          MENU DE FILTRO          =\n"
            "====================================\n"
            "= [1] - Filtrar por autor          =\n"
-           "= [2] - Filtrar por gênero         =\n"
+           "= [2] - Filtrar por genero         =\n"
            "= [3] - Filtrar por titulo         =\n"
            "= [4] - Filtrar por favoritos      =\n"
            "= [5] - Filtrar por status         =\n"
-           "= [0] - Sair                       =\n"
+           "= [0] - Voltar                     =\n"
            "====================================\n\n");
-    input = input_string("Digite a opção desejada");
+    input = input_string("Digite a opcao desejada");
 
     if (strspn(input, "0123456789\n") == strlen(input))
         op = atoi(input);
@@ -268,15 +267,16 @@ int favorito_menu()
 
     printf("\n"
            "====================================\n"
-           "=          MENU DE OPÇÕES          =\n"
+           "=          MENU FAVORITOS          =\n"
            "====================================\n"
            "= [1] - Adicionar Favorito         =\n"
            "= [2] - Remover Favorito           =\n"
+           "= [3] - Visualizar Favoritos       =\n"
            "= [0] - Voltar                     =\n"
            "====================================\n"
            "\n");
 
-    input = input_string("Digite a opção desejada");
+    input = input_string("Digite a opcao desejada");
 
     if (strspn(input, "0123456789\n") == strlen(input))
         op = atoi(input);
@@ -300,23 +300,23 @@ void cadastrar_livro()
         int confirmar;
         int op_status;
 
-        printf("\n--- Cadastro de Livro ---\n");
+        printf("\n--- CADASTRO DE LIVRO ---\n");
 
-        novo_livro->titulo = formatar_entrada(input_string("Digite o título do livro"));
+        novo_livro->titulo = formatar_entrada(input_string("\nDigite o titulo do livro"));
 
         novo_livro->autor = formatar_entrada(input_string("Digite o nome do autor"));
 
         struct st_livro *livro = buscar_livro(novo_livro->titulo, novo_livro->autor);
         if (livro != NULL)
         {
-            printf("Este livro já existe na estante.\n");
+            printf("\nEste livro ja existe na estante!\n");
             free(novo_livro);
             return;
         }
 
-        novo_livro->genero = formatar_entrada(input_string("Digite o gênero do livro"));
+        novo_livro->genero = formatar_entrada(input_string("Digite o genero do livro"));
 
-        printf("Digite a quantidade de páginas do livro: ");
+        printf("Digite a quantidade de paginas do livro: ");
         scanf("%d", &novo_livro->qtd_paginas);
         limpar_buffer();
         do
@@ -342,11 +342,11 @@ void cadastrar_livro()
         novo_livro->status = status;
         novo_livro->proxPtr_livro = NULL;
 
-        printf("\nVocê inseriu os seguintes dados:\nTitulo: %s\nAutor: %s\nGênero: %s\nQuantidade de Páginas: %d\nStatus do Livro: %s\n", novo_livro->titulo, novo_livro->autor, novo_livro->genero, novo_livro->qtd_paginas, novo_livro->status);
+        printf("\nVoce inseriu os seguintes dados:\nTitulo: %s\nAutor: %s\nGenero: %s\nQuantidade de Paginas: %d\nStatus do Livro: %s\n", novo_livro->titulo, novo_livro->autor, novo_livro->genero, novo_livro->qtd_paginas, novo_livro->status);
 
         do
         {
-            input = input_string("\nOs dados inseridos estão corretos? ([1]Sim/[2]Não)");
+            input = input_string("\nOs dados inseridos estao corretos? ([1]Sim/[2]Nao)");
             if (strspn(input, "0123456789\n") == strlen(input))
                 confirmar = atoi(input);
             else
@@ -355,30 +355,30 @@ void cadastrar_livro()
             switch (confirmar)
             {
             case 1:
-                printf("\nLivro cadastrado com sucesso.\n");
+                printf("\nLivro cadastrado com sucesso!\n");
 
                 ordena_livros(novo_livro);
                 armazenar_livros_db();
                 break;
 
             case 2:
-                printf("\nSem problemas.\n");
+                printf("\nSem problemas!Tente novamente.\n");
                 free(novo_livro);
                 return;
 
             default:
-                printf("Opcao invalida.\n");
+                printf("\nOpcao invalida!\n");
                 break;
             }
         } while (confirmar != 1 && confirmar != 2);
     }
     else
     {
-        printf("Não há espaço disponível para o livro.\n");
+        printf("Nao ha espaço disponivel para o livro!\n");
     }
 }
 
-void ordena_livros(struct st_livro *novo_livro)
+void ordena_livros(struct st_livro *novo_livro) // armazena o livro na lista encadeada em ordem alfabetica
 {
     if (lista_livros == NULL || strcmp(novo_livro->titulo, lista_livros->titulo) < 0)
     {
@@ -396,7 +396,7 @@ void ordena_livros(struct st_livro *novo_livro)
     }
 }
 
-void armazenar_livros_db()
+void armazenar_livros_db() // pega todos os livros que estao na lista encadeada e sobrescreve no bd para o bd ficar em ordem alfabetica tbm
 {
     FILE *db = fopen("database/livros.txt", "w");
     if (db)
@@ -411,7 +411,7 @@ void armazenar_livros_db()
     }
     else
     {
-        printf("Não foi possivel abrir o arquivo de banco de dados.\n");
+        printf("Nao foi possivel abrir o arquivo de banco de dados.\n");
     }
 }
 
@@ -420,22 +420,22 @@ void armazenar_livros_db()
  █▀ █▀█ ▀▄▀ ▀▄▀ █▀▄ █  █  ▀▄▀ ▄██
 */
 
-void pre_add_favorito()
+void pre_add_favorito() //faz uma checagem para ver se o livro já existe na estante antes de adicionar na lista de favoritos
 {
     char *titulo;
     char *autor;
     struct st_livro *favorito = NULL;
 
-    titulo = formatar_entrada(input_string("Digite o título do livro"));
+    titulo = formatar_entrada(input_string("Digite o titulo do livro"));
     autor = formatar_entrada(input_string("Digite o autor do livro"));
     favorito = buscar_livro(titulo, autor);
     if (favorito == NULL)
-        printf("Livro não existe.");
+        printf("\nLivro nao existe na estante!\n");
     else
         cadastrar_favorito(favorito);
 }
 
-void cadastrar_favorito(struct st_livro *novo_livro)
+void cadastrar_favorito(struct st_livro *novo_livro) //adiciona o livro na lista de favoritos
 {
     struct favoritos *favorito = (struct favoritos *)malloc(sizeof(struct favoritos));
     favorito->livro = novo_livro;
@@ -444,15 +444,15 @@ void cadastrar_favorito(struct st_livro *novo_livro)
     {
         ordena_favoritos(favorito);
         armazenar_favorito_db();
-        printf("\nFavorito cadastrado com sucesso.\n");
+        printf("\nFavorito cadastrado com sucesso!\n");
     }
     else
     {
-        printf("\nFavorito já cadastrado. Não foi possivel cadastrar favorito. \n");
+        printf("\nFavorito ja cadastrado. Nao foi possivel cadastrar novamente! \n");
     }
 }
 
-void ordena_favoritos(struct favoritos *novo_favorito)
+void ordena_favoritos(struct favoritos *novo_favorito) //ordena a lista de favoritos em ordem alfabetica
 {
     if (favoritos == NULL || strcmp(novo_favorito->livro->titulo, favoritos->livro->titulo) < 0)
     {
@@ -470,7 +470,7 @@ void ordena_favoritos(struct favoritos *novo_favorito)
     }
 }
 
-void armazenar_favorito_db()
+void armazenar_favorito_db() //pega todos os livros que estao na lista de favoritos e sobrescreve no bd para o bd ficar em ordem alfabetica tbm
 {
     FILE *db = fopen("database/favoritos.txt", "w");
     if (db)
@@ -485,7 +485,7 @@ void armazenar_favorito_db()
     }
     else
     {
-        printf("Não foi possivel abrir o arquivo de banco de dados.\n");
+        printf("\nNao foi possivel abrir o arquivo de banco de dados!\n");
     }
 }
 
@@ -494,7 +494,7 @@ void pre_remover_favorito()
     char *titulo;
     char *autor;
 
-    titulo = formatar_entrada(input_string("Digite o título do livro"));
+    titulo = formatar_entrada(input_string("Digite o titulo do livro"));
     autor = formatar_entrada(input_string("Digite o autor do livro"));
     remover_favorito(titulo, autor);
 }
@@ -518,7 +518,7 @@ void remover_favorito(char *titulo, char *autor)
             }
 
             free(atual);
-            printf("Favorito removido com sucesso.\n");
+            printf("\nFavorito removido com sucesso!\n");
             armazenar_favorito_db();
 
             return;
@@ -528,10 +528,10 @@ void remover_favorito(char *titulo, char *autor)
         atual = atual->proxPtr_favorito;
     }
 
-    printf("Favorito não encontrado.\n");
+    printf("\nFavorito nao encontrado!\n");
 }
 
-bool ehfavorito(char *titulo, char *autor)
+bool ehfavorito(char *titulo, char *autor) //verifica se o livro que vc quer adicionar em favoritos já esta na lista de favoritos
 {
     struct favoritos *atual = favoritos;
 
@@ -552,7 +552,7 @@ void visualizar_favoritos()
     struct favoritos *atual = favoritos;
     if (atual == NULL)
     {
-        printf("Não há favoritos.\n");
+        printf("\nVoce ainda nao adicionou livros favoritos!\n");
         return;
     }
 
@@ -562,7 +562,7 @@ void visualizar_favoritos()
            "====================================\n");
     while (atual != NULL)
     {
-        printf("♦ Título: %s\n♦ Autor: %s\n♦ Gênero: %s\n♦ Quantidade de páginas: %d\n ♦Status de leitura: %s\n", atual->livro->titulo, atual->livro->autor, atual->livro->genero, atual->livro->qtd_paginas, atual->livro->status);
+        printf("\n*Titulo: %s\n*Autor: %s\n*Genero: %s\n*Quantidade de paginas: %d\n*Status de leitura: %s\n", atual->livro->titulo, atual->livro->autor, atual->livro->genero, atual->livro->qtd_paginas, atual->livro->status);
         printf("====================================\n");
         atual = atual->proxPtr_favorito;
     }
@@ -581,7 +581,7 @@ void visualizar_livros()
 
     if (atual == NULL)
     {
-        printf("Não há livros.\n");
+        printf("Voce ainda nao adicinou livros na estante!\n");
         return;
     }
 
@@ -591,7 +591,7 @@ void visualizar_livros()
            "====================================\n");
     while (atual != NULL)
     {
-        printf("ID: %d\n♦ Título: %s\n♦ Autor: %s\n♦ Gênero: %s\n♦ Quantidade de páginas: %d\n♦ Status de leitura: %s\n", id, atual->titulo, atual->autor, atual->genero, atual->qtd_paginas, atual->status);
+        printf("ID: %d\n*Titulo: %s\n*Autor: %s\n*Genero: %s\n*Quantidade de paginas: %d\n*Status de leitura: %s\n", id, atual->titulo, atual->autor, atual->genero, atual->qtd_paginas, atual->status);
         printf("====================================\n");
         atual = atual->proxPtr_livro;
         id++;
@@ -628,10 +628,10 @@ void remover_livro()
 
     printf("\n"
            "====================================\n"
-           "=           Remover Livro          =\n"
+           "=           REMOVER LIVRO          =\n"
            "====================================\n\n");
 
-    titulo = formatar_entrada(input_string("Digite o título do livro que deseja remover"));
+    titulo = formatar_entrada(input_string("Digite o titulo do livro que deseja remover"));
 
     autor = formatar_entrada(input_string("Qual o autor do livro? "));
 
@@ -652,7 +652,7 @@ void remover_livro()
             if (ehfavorito(livro_atual->titulo, livro_atual->autor))
                 remover_favorito(livro_atual->titulo, livro_atual->autor);
             free(livro_atual);
-            printf("Livro removido com sucesso.\n");
+            printf("\nLivro removido com sucesso!\n");
             armazenar_livros_db();
             return;
         }
@@ -661,7 +661,7 @@ void remover_livro()
         livro_atual = livro_atual->proxPtr_livro;
     }
 
-    printf("Livro não encontrado.\n");
+    printf("Livro nao encontrado.\n");
 }
 
 /*
@@ -686,17 +686,19 @@ void filtrar(int filtro)
         break;
 
     case 3:
-        titulo = formatar_entrada(input_string("Digite o título do livro"));
-
+        titulo = formatar_entrada(input_string("Digite o titulo do livro"));
         autor = formatar_entrada(input_string("Digite o nome do autor"));
-
         livro = buscar_livro(titulo, autor);
 
         if (livro == NULL)
-            printf("Livro não existe na estante!");
+            printf("\nLivro nao existe na estante!\n");
         else
         {
-            printf("%s | %s | %s | %d\n", livro->titulo, livro->autor, livro->genero, livro->qtd_paginas);
+            printf("\n====================================\n");
+            printf("=         INFORMACOES DO LIVRO      = ");
+            printf("\n====================================");
+            printf("\n*TITULO: %s\n*AUTOR: %s\n*GENERO: %s\n*QUANTIDADE DE PAG: %d\n*STATUS DE LEITURA: %s\n", livro->titulo, livro->autor,livro->genero, livro->qtd_paginas, livro->status);
+            printf("====================================\n");
         }
         break;
 
@@ -737,7 +739,7 @@ void mostrar_generos_unicos() // listar generos disponiveis no db
 
     printf("\n"
            "====================================\n"
-           "=        Gêneros cadastrados:      =\n"
+           "=        GENEROS CADASTRADOS       =\n"
            "====================================\n");
 
     for (int i = 0; i < count; i++)
@@ -748,7 +750,7 @@ void mostrar_generos_unicos() // listar generos disponiveis no db
 
     do
     {
-        input = input_string("Digite a opção desejada");
+        input = input_string("Digite a opcao desejada");
 
         if (strspn(input, "0123456789\n") == strlen(input))
             escolha = atoi(input);
@@ -760,7 +762,7 @@ void mostrar_generos_unicos() // listar generos disponiveis no db
             mostrar_livros_genero(formatar_entrada(generos[escolha - 1]));
         }
         else
-            printf("Gênero invalida.\n");
+            printf("Genero invalido!\n");
     } while (!(escolha <= count && escolha > 0));
 }
 
@@ -769,21 +771,21 @@ void mostrar_livros_genero(char *genero) // mostrar os livros do genero escolhid
     struct st_livro *livro_atual = lista_livros;
     printf("\n"
            "====================================\n"
-           "      Livros do gênero %s           \n"
+           "      LIVROS DO GENERO %s           \n"
            "====================================\n",
            genero);
     while (livro_atual != NULL)
     {
         if (strcmp(formatar_entrada(livro_atual->genero), formatar_entrada(genero)) == 0)
         {
-            printf("* %s escrito por %s\n", livro_atual->titulo, livro_atual->autor);
+            printf("\n*TITULO: %s\n*AUTOR: %s\n*QUANTIDADE DE PAG: %d\n*STATUS DE LEITURA: %s\n", livro_atual->titulo, livro_atual->autor, livro_atual->qtd_paginas, livro_atual->status);
+            printf("====================================\n");
         }
         livro_atual = livro_atual->proxPtr_livro;
     }
-    printf("====================================\n");
 }
 
-void mostrar_autores_unicos() // mostrar os autores disponiveis no db
+void mostrar_autores_unicos() // listar os autores disponiveis no db
 {
     int escolha;
     char *input;
@@ -811,7 +813,7 @@ void mostrar_autores_unicos() // mostrar os autores disponiveis no db
 
     printf("\n"
            "====================================\n"
-           "=        Autores cadastrados:      =\n"
+           "=        AUTORES CADASTRADOS       =\n"
            "====================================\n");
 
     for (int i = 0; i < count; i++)
@@ -821,7 +823,7 @@ void mostrar_autores_unicos() // mostrar os autores disponiveis no db
     printf("====================================\n\n");
     do
     {
-        input = input_string("Digite a opção desejada");
+        input = input_string("Digite a opcao desejada");
 
         if (strspn(input, "0123456789\n") == strlen(input))
             escolha = atoi(input);
@@ -833,7 +835,7 @@ void mostrar_autores_unicos() // mostrar os autores disponiveis no db
             mostrar_livros_autor(formatar_entrada(autores[escolha - 1]));
         }
         else
-            printf("Gênero invalida.\n");
+            printf("Autor invalido!\n");
     } while (!(escolha <= count && escolha > 0));
 }
 
@@ -842,16 +844,16 @@ void mostrar_livros_autor(char *autor) // mostrar os livros do autor escolhido
     struct st_livro *livro_atual = lista_livros;
     printf("\n"
            "====================================\n"
-           "      Livros do Autor %s       \n"
+           "      LIVROS DO(A) AUTOR(A) %s       \n"
            "====================================\n",
            autor);
     while (livro_atual != NULL)
     {
         if (strcmp(formatar_entrada(livro_atual->autor), formatar_entrada(autor)) == 0)
         {
-            printf("* %s do gênero %s\n", livro_atual->titulo, livro_atual->genero);
+            printf("\n*TITULO: %s\n*GENERO: %s\n*QUANTIDADE DE PAG: %d\n*STATUS DE LEITURA: %s\n", livro_atual->titulo, livro_atual->genero, livro_atual->qtd_paginas, livro_atual->status);
+            printf("====================================\n");
         }
         livro_atual = livro_atual->proxPtr_livro;
     }
-    printf("====================================\n");
 }

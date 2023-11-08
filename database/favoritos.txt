@@ -2,6 +2,6 @@ Alice | Lewis | Nd | 200 | Lido
 Amona | Amora | Nd | 200 | Lido
 As Cronicas | Leon Martin | Drama | 500 | Lido
 Blade Runner | Philip Kindred Dick | Ficcao Cientifica | 300 | Lido
-Caçador De Pipas | Nlembro | Nd | 200 | Quero Ler
+Cacador De Pipas | Nlembro | Nd | 200 | Quero Ler
 Cleber | Lius | Nd | 200 | Quero Ler
 Perifericos | William Gibson | Ficcao Cientifica | 584 | Abandonado

@@ -36,7 +36,7 @@ int main()
 					visualizar_livros();
 					break;
 				case 2:
-					printf("Temos %d livro(s) na estante.\n", contar_livros());
+					printf("\nTemos %d livro(s) na estante!\n", contar_livros());
 					break;
 				case 3:
 					editar_status();
@@ -46,10 +46,10 @@ int main()
 					break;
 
 				case 0:
-					printf("Voltando para o menu.\n");
+					printf("\nVoltando para o menu...\n");
 					break;
 				default:
-					printf("Opcao invalida.\n");
+					printf("\nOpcao invalida!\n");
 					break;
 				}
 			} while (estante != 0);
@@ -74,10 +74,10 @@ int main()
 					filtrar(4);
 					break;
 				case 0:
-					printf("Voltando para o menu.\n");
+					printf("\nVoltando para o menu...\n");
 					break;
 				default:
-					printf("Opcao invalida.\n");
+					printf("\nOpcao invalida!\n");
 					break;
 				}
 			} while (filtro != 0);
@@ -96,23 +96,25 @@ int main()
 				case 2:
 					pre_remover_favorito();
 					break;
-
+				case 3:
+					visualizar_favoritos();
+					break;
 				case 0:
-					printf("Voltando para o menu.\n");
+					printf("\nVoltando para o menu...\n");
 					break;
 				default:
-					printf("Opcao invalida.\n");
+					printf("\nOpcao invalida!\n");
 					break;
 				}
 			} while (favorito != 0);
 			break;
 
 		case 0:
-			printf("Programa encerrado.\n");
+			printf("\nPROGRAMA ENCERRADO!\n\n");
 			break;
 
 		default:
-			printf("Opcao invalida.\n");
+			printf("\nOpcao invalida!\n");
 			break;
 		}
 	} while (option != 0);

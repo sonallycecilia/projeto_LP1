@@ -2,7 +2,7 @@ Alice | Lewis | Nd | 200 | Lido
 Amona | Amora | Nd | 200 | Lido
 As Cronicas | Leon Martin | Drama | 500 | Lido
 Blade Runner | Philip Kindred Dick | Ficcao Cientifica | 300 | Lido
-Caçador De Pipas | Nlembro | Nd | 200 | Quero Ler
+Cacador De Pipas | Nlembro | Nd | 200 | Quero Ler
 Cleber | Lius | Nd | 200 | Quero Ler
 Coraline | Naosei | Algum | 123 | Quero Ler
 Erik | Laun | Drama | 200 | Quero Ler
@@ -10,11 +10,11 @@ Harry Potter | Nao Sei | Nao Sei | 123 | Quero Ler
 Jantar | Raphael | Suspense | 300 | Quero Ler
 Kiren | Loops | Nd | 200 | Quero Ler
 La Muerte | Cleber | Drama | 200 | Quero Ler
-Limãozito | Cleber | Nd | 200 | Lido
+Limaozito | Cleber | Nd | 200 | Lido
 Livru | Cleber | Drama | 200 | Lido
 Morte | Linc | Nd | 200 | Lido
 Nos | Zamiatin | Ficcao Cientifica | 304 | Lido
-O Herói De Mil Faces | Joseph Campbell | Nd | 300 | Abandonado
+O Heroi De Mil Faces | Joseph Campbell | Nd | 300 | Abandonado
 Olo | Nam | Cabe | 21 | Abandonado
 Ops | Lam | 200 | 100 | Abandonado
 Perdido Em Marte | Philip Kindred Dick | Ficcao Cientifica | 302 | Abandonado
