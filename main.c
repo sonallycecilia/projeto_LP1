@@ -7,12 +7,11 @@ struct st_livro livro;
 
 int main()
 {
-	carregar_livros();
-	carregar_favoritos();
+	carregar_dados();
 
-	setlocale(LC_ALL, "Portuguese_Brazil");
+	setlocale(LC_ALL, "Portuguese");
 	int option;
-	int ver;
+	int estante;
 	int filtro;
 	int favorito;
 
@@ -29,57 +28,65 @@ int main()
 		case 2:
 			do
 			{
-				ver = ver_menu();
+				estante = estante_menu();
 
-				switch (ver)
+				switch (estante)
 				{
 				case 1:
-					pegar_info();
+					visualizar_livros();
 					break;
 				case 2:
-					printf("Temos %d livro(s) na estante.\n", contar_livros());
+					printf("\nTemos %d livro(s) na estante!\n", contar_livros());
+					break;
+				case 3:
+					editar_status();
+					break;
+				case 4:
+					remover_livro();
 					break;
 
 				case 0:
-					printf("Voltando para o menu.\n");
+					printf("\nVoltando para o menu...\n");
 					break;
 				default:
-					printf("Opcao invalida.\n");
+					printf("\nOpcao invalida!\n");
 					break;
 				}
-			} while (ver != 0);
+			} while (estante != 0);
 			break;
 
 		case 3:
 			do
 			{
-				filtro = filtrar_m();
+				filtro = filtrar_menu();
 				switch (filtro)
 				{
 				case 1:
 					filtrar(1);
 					break;
-
 				case 2:
 					filtrar(2);
 					break;
 				case 3:
 					filtrar(3);
 					break;
-
+				case 4:
+					filtrar(4);
+					break;
 				case 0:
-					printf("Voltando para o menu.\n");
+					printf("\nVoltando para o menu...\n");
 					break;
 				default:
-					printf("Opcao invalida.\n");
+					printf("\nOpcao invalida!\n");
 					break;
 				}
 			} while (filtro != 0);
 			break;
+
 		case 4:
 			do
 			{
-				favorito = favorito_m();
+				favorito = favorito_menu();
 				switch (favorito)
 				{
 				case 1:
@@ -89,26 +96,25 @@ int main()
 				case 2:
 					pre_remover_favorito();
 					break;
-
+				case 3:
+					visualizar_favoritos();
+					break;
 				case 0:
-					printf("Voltando para o menu.\n");
+					printf("\nVoltando para o menu...\n");
 					break;
 				default:
-					printf("Opcao invalida.\n");
+					printf("\nOpcao invalida!\n");
 					break;
 				}
 			} while (favorito != 0);
 			break;
 
-		case 5:
-			remover_livro();
-			break;
 		case 0:
-			printf("Programa encerrado.\n");
+			printf("\nPROGRAMA ENCERRADO!\n\n");
 			break;
 
 		default:
-			printf("Opcao invalida.\n");
+			printf("\nOpcao invalida!\n");
 			break;
 		}
 	} while (option != 0);
