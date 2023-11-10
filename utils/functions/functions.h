@@ -57,6 +57,7 @@ void visualizar_favoritos(void);
 // estante
 void visualizar_livros(void);
 int contar_livros(void);
+int escolher_livro_lista(void);
 void editar_status(void);
 void sortear_livros(void);
 void remover_livro(void);

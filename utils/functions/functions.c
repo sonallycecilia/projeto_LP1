@@ -610,9 +610,81 @@ int contar_livros()
     return cont;
 }
 
+int escolher_livro_lista()
+{
+    struct st_livro *atual = lista_livros;
+    int op, id = 1;
+    char *input;
+ 
+    if (atual == NULL)
+    {
+        printf("Voce ainda nao adicinou livros na estante!\n");
+        return 0;
+    }
+
+    printf("\n"
+           "====================================\n"
+           "=         LIVROS NA ESTANTE        =\n"
+           "====================================\n");
+    while (atual != NULL)
+    {
+        printf("[%d] - \"%s\" por %s \n", id, atual->titulo, atual->autor);
+        atual = atual->proxPtr_livro;
+        id++;
+    }
+    input = input_string("\nSelecione o livro que deseja editar");
+
+    if (strspn(input, "0123456789\n") == strlen(input))
+        op = atoi(input);
+    else
+        op = -1;
+    return op;
+}
+
 void editar_status()
 {
-    // implementar
+    int livro, count = 1;
+    livro = escolher_livro_lista();
+    struct st_livro *livro_escolhido = lista_livros;
+    if (livro == 1){
+        printf("livro 1");
+        return;
+    }
+
+    while (count < livro){
+         livro_escolhido = livro_escolhido->proxPtr_livro;
+         count++;
+    }
+
+    if (livro_escolhido != NULL) {
+        int editar = filtrar_status_menu();
+        switch(editar)
+        {
+            case 1:
+                livro_escolhido->status = "Lido";
+                armazenar_livros_db(); //precisa para atualizar no txt, não gosto
+                printf("\nStatus atualizado.\n");
+                break;
+            case 2:
+                livro_escolhido->status = "Quero ler";
+                armazenar_livros_db();
+                printf("\nStatus atualizado.\n");
+                break;
+            case 3:
+                livro_escolhido->status = "Abandonado";
+                printf("\nStatus atualizado.\n");
+                armazenar_livros_db();
+                break;
+            case 0:
+                printf("\nVoltando para o menu...\n");
+                break;
+            default:
+                printf("\nOpcao invalida!\n");
+                break;
+        }
+    } 
+    else
+        printf("Livro não encontrado");
 }
 
 void sortear_livros()
