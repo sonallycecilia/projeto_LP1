@@ -8,7 +8,7 @@ MENU
 * ~~Autor~~
 * ~~Gênero~~
 * ~~Quantidade de Páginas~~
-* Status
+* ~~Status~~
 * ~~Confirmar Informações~~
 * Favorito (se for marcado como lido)
 
@@ -19,7 +19,7 @@ MENU
 * Sortear Leitura
 * Escolher mais antigo (se der tempo)
 * ~~Remover Livro~~
-* Editar Status
+* ~~Editar Status~~
 * Voltar
 
 
