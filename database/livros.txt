@@ -1,23 +1,22 @@
 Alice | Lewis | Nd | 200 | Lido
 Amona | Amora | Nd | 200 | Lido
 As Cronicas | Leon Martin | Drama | 500 | Lido
+Bananilson | Bananaldo | Comedia | 888 | Lido
 Blade Runner | Philip Kindred Dick | Ficcao Cientifica | 300 | Lido
 Cacador De Pipas | Nlembro | Nd | 200 | Quero Ler
 Cleber | Lius | Nd | 200 | Quero Ler
 Coraline | Naosei | Algum | 123 | Quero Ler
 Erik | Laun | Drama | 200 | Quero Ler
+Favorito De Todos | Best | Suspense | 333 | Lido
 Harry Potter | Nao Sei | Nao Sei | 123 | Quero Ler
 Jantar | Raphael | Suspense | 300 | Quero Ler
 Kiren | Loops | Nd | 200 | Quero Ler
 La Muerte | Cleber | Drama | 200 | Quero Ler
 Limaozito | Cleber | Nd | 200 | Lido
-Livru | Cleber | Drama | 200 | Lido
 Morte | Linc | Nd | 200 | Lido
 Mulheres Que Correm Com Os Lobos | Clarissa Pinkola Estes | Nao Ficcao | 584 | Lido
 Nos | Zamiatin | Ficcao Cientifica | 304 | Lido
 O Heroi De Mil Faces | Joseph Campbell | Nd | 300 | Abandonado
 Ops | Lam | 200 | 100 | Abandonado
-Perdido Em Marte | Philip Kindred Dick | Ficcao Cientifica | 302 | Abandonado
-Perifericos | William Gibson | Ficcao Cientifica | 584 | Abandonado
-Suicidas | Rafael | Suspense | 390 | Abandonado
-Ubik | Philip Kindred Dick | Ficcao Cientifica | 284 | Lido
+Percy Jackson | John Jen | Fantasia | 304 | Lido
+Triangulo Das Bermudas | Deus | Geografia | 105 | Quero ler

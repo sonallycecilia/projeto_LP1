@@ -73,6 +73,8 @@ int main()
 				case 4:
 					filtrar(4);
 					break;
+				case 5:
+					filtrar(5);
 				case 0:
 					printf("\nVoltando para o menu...\n");
 					break;

@@ -1,15 +1,9 @@
-<<<<<<< HEAD
 Alice | Lewis | Nd | 200 | Lido
 Amona | Amora | Nd | 200 | Lido
 As Cronicas | Leon Martin | Drama | 500 | Lido
+Bananilson | Bananaldo | Comedia | 888 | Lido
 Blade Runner | Philip Kindred Dick | Ficcao Cientifica | 300 | Lido
 Cacador De Pipas | Nlembro | Nd | 200 | Quero Ler
 Cleber | Lius | Nd | 200 | Quero Ler
+Percy Jackson | John Jen | Fantasia | 304 | Lido
 Perifericos | William Gibson | Ficcao Cientifica | 584 | Abandonado
-=======
-Alice | Lewis | Nd | 200
-As Cronicas | Leon Martin | Drama | 500
-Blade Runner | Philip Kindred Dick | Ficcao Cientifica | 300
-Bob Dylan | Carrie | Terror | 200
-Ubik | Philip Kindred Dick | Ficcao Cientifica | 284
->>>>>>> 3764baaecd008a750bb34681c4cb539e283fefc5
