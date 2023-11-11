@@ -45,6 +45,7 @@ void ordena_livros(struct st_livro *novo_livro);
 void armazenar_livros_db(void);
 
 // favoritos
+void favorito_durante_cadastro(const char *status, struct st_livro *novo_livro);
 void pre_add_favorito(void);
 void cadastrar_favorito(struct st_livro *novo_livro);
 void ordena_favoritos(struct favoritos *novo_favorito);
@@ -64,6 +65,8 @@ void remover_livro(void);
 
 // filtrar
 void filtrar(int filtro);
+void filtrar_por_status(int op);
+void mostrar_livros_status(const char *status);
 void mostrar_generos_unicos(void);
 void mostrar_livros_genero(char *genero);
 void mostrar_autores_unicos(void);

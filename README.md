@@ -10,7 +10,7 @@ MENU
 * ~~Quantidade de Páginas~~
 * ~~Status~~
 * ~~Confirmar Informações~~
-* Favorito (se for marcado como lido)
+* ~~Favorito (se for marcado como lido)~~
 
 
 **2. Estante**
@@ -27,10 +27,10 @@ MENU
 * ~~Gênero~~
 * ~~Autor~~
 * ~~Titulo~~
-* Status
-    * Lido
-    * Quero Ler
-    * Abandonado
+* ~~Status~~
+    * ~~Lido~~
+    * ~~Quero Ler~~
+    * ~~Abandonado~~
 * Voltar
 
 

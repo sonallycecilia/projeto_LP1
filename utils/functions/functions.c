@@ -296,8 +296,7 @@ void cadastrar_livro()
     {
         char *status;
         char *input;
-        int confirmar;
-        int op_status;
+        int confirmar, fav, op_status;
 
         printf("\n--- CADASTRO DE LIVRO ---\n");
 
@@ -358,6 +357,7 @@ void cadastrar_livro()
 
                 ordena_livros(novo_livro);
                 armazenar_livros_db();
+                favorito_durante_cadastro(status, novo_livro);
                 break;
 
             case 2:
@@ -418,6 +418,39 @@ void armazenar_livros_db() // pega todos os livros que estao na lista encadeada 
  █▀ ▄▀▄ █ █ ▄▀▄ █▀▄ █ ▀█▀ ▄▀▄ ▄▀▀
  █▀ █▀█ ▀▄▀ ▀▄▀ █▀▄ █  █  ▀▄▀ ▄██
 */
+
+void favorito_durante_cadastro(const char *status, struct st_livro *novo_livro)//caso o livro cadastrado já seja marcado como lido, a função perguntará se o usuario já o deseja colocar nos favoritos
+{
+    if (status == "Lido"){
+        int fav;
+        char *input;
+        do
+        {
+            input = input_string("\nDeseja adicionar este livro aos favoritos? ([1]Sim/[2]Nao)");
+            if (strspn(input, "0123456789\n") == strlen(input))
+                fav = atoi(input);
+            else
+                fav = -1;
+
+            switch (fav)
+            {
+                case 1:
+                    cadastrar_favorito(novo_livro);
+                    printf("\nO livro foi adicionado aos favoritos!\n");
+                    break;
+
+                case 2:
+                    printf("\nO livro nao foi adicionado aos favoritos.\n");
+                    break;
+
+                default:
+                    printf("\nOpcao invalida!\n");
+                    break;
+            }
+        } while (fav != 1 && fav != 2);
+     }
+     return;
+}
 
 void pre_add_favorito() //faz uma checagem para ver se o livro já existe na estante antes de adicionar na lista de favoritos
 {
@@ -561,7 +594,7 @@ void visualizar_favoritos()
            "====================================\n");
     while (atual != NULL)
     {
-        printf("\n*Titulo: %s\n*Autor: %s\n*Genero: %s\n*Quantidade de paginas: %d\n*Status de leitura: %s\n", atual->livro->titulo, atual->livro->autor, atual->livro->genero, atual->livro->qtd_paginas, atual->livro->status);
+        printf("\n*TITULO: %s\n*AUTOR: %s\n*GENERO: %s\n*QUANTIDADE DE PAG: %d\n*STATUS DE LEITURA: %s\n", atual->livro->titulo, atual->livro->autor, atual->livro->genero, atual->livro->qtd_paginas, atual->livro->status);
         printf("====================================\n");
         atual = atual->proxPtr_favorito;
     }
@@ -590,7 +623,7 @@ void visualizar_livros()
            "====================================\n");
     while (atual != NULL)
     {
-        printf("ID: %d\n*Titulo: %s\n*Autor: %s\n*Genero: %s\n*Quantidade de paginas: %d\n*Status de leitura: %s\n", id, atual->titulo, atual->autor, atual->genero, atual->qtd_paginas, atual->status);
+        printf("ID: %d\n*TITULO: %s\n*AUTOR: %s\n*GENERO: %s\n*QUANTIDADE DE PAG: %d\n*STATUS DE LEITURA: %s\n", id, atual->titulo, atual->autor, atual->genero, atual->qtd_paginas, atual->status);
         printf("====================================\n");
         atual = atual->proxPtr_livro;
         id++;
@@ -745,6 +778,7 @@ void filtrar(int filtro)
     struct st_livro *livro = NULL;
     char *autor;
     char *titulo;
+    int op;
 
     switch (filtro)
     {
@@ -777,9 +811,50 @@ void filtrar(int filtro)
         visualizar_favoritos();
         break;
     case 5:
-        // implementar
+        op = filtrar_status_menu();
+        filtrar_por_status(op);
         break;
     }
+}
+
+void filtrar_por_status(int op){
+    switch (op)
+    {
+    case 1:
+        mostrar_livros_status("Lido");
+        break;
+    case 2:
+        mostrar_livros_status("Quero Ler");
+        break;
+    case 3:
+        mostrar_livros_status("Abandonado");
+        break;
+    case 0:
+        break;
+    default:
+        printf("\nOpcao invalida!\n");
+        break;
+    }
+}
+
+void mostrar_livros_status(const char *status){
+    struct st_livro *livro_atual = lista_livros;
+    printf("\n"
+        "====================================\n"
+        "              %s                    \n"
+        "====================================\n",
+        status);
+    
+     while (livro_atual != NULL)
+    {
+        if (strcmp(livro_atual->status, status) == 0)
+        {
+            printf("\n*TITULO: %s\n*AUTOR: %s\n*GENERO: %s\n*QUANTIDADE DE PAG: %d\n", livro_atual->titulo, livro_atual->autor, livro_atual->genero, livro_atual->qtd_paginas);
+            printf("====================================\n");
+        }
+        livro_atual = livro_atual->proxPtr_livro;
+    }
+        
 }
 
 void mostrar_generos_unicos() // listar generos disponiveis no db
@@ -817,6 +892,7 @@ void mostrar_generos_unicos() // listar generos disponiveis no db
     {
         printf("[%d] - %s\n", i + 1, generos[i]);
     }
+    printf("[0] - Voltar\n");
     printf("====================================\n\n");
 
     do
@@ -829,12 +905,12 @@ void mostrar_generos_unicos() // listar generos disponiveis no db
             escolha = -1;
 
         if (escolha <= count && escolha > 0)
-        {
             mostrar_livros_genero(formatar_entrada(generos[escolha - 1]));
-        }
+        else if (escolha == 0)
+            printf("Voltando ao menu de filtro...");
         else
             printf("Genero invalido!\n");
-    } while (!(escolha <= count && escolha > 0));
+    } while (!(escolha <= count && escolha >= 0));
 }
 
 void mostrar_livros_genero(char *genero) // mostrar os livros do genero escolhido
@@ -891,6 +967,7 @@ void mostrar_autores_unicos() // listar os autores disponiveis no db
     {
         printf("[%d] - %s\n", i + 1, autores[i]);
     }
+    printf("[0] - Voltar\n");
     printf("====================================\n\n");
     do
     {
@@ -902,12 +979,12 @@ void mostrar_autores_unicos() // listar os autores disponiveis no db
             escolha = -1;
 
         if (escolha <= count && escolha > 0)
-        {
             mostrar_livros_autor(formatar_entrada(autores[escolha - 1]));
-        }
+        else if (escolha == 0)
+            printf("\nVoltando ao menu de filtro...\n");
         else
             printf("Autor invalido!\n");
-    } while (!(escolha <= count && escolha > 0));
+    } while (!(escolha <= count && escolha >= 0));
 }
 
 void mostrar_livros_autor(char *autor) // mostrar os livros do autor escolhido
