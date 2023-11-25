@@ -1,22 +1,20 @@
-Alice | Lewis | Nd | 200 | Lido
-Amona | Amora | Nd | 200 | Lido
-As Cronicas | Leon Martin | Drama | 500 | Lido
-Bananilson | Bananaldo | Comedia | 888 | Lido
-Blade Runner | Philip Kindred Dick | Ficcao Cientifica | 300 | Lido
-Cacador De Pipas | Nlembro | Nd | 200 | Quero Ler
-Cleber | Lius | Nd | 200 | Quero Ler
-Coraline | Naosei | Algum | 123 | Quero Ler
-Erik | Laun | Drama | 200 | Quero Ler
-Favorito De Todos | Best | Suspense | 333 | Lido
-Harry Potter | Nao Sei | Nao Sei | 123 | Quero Ler
-Jantar | Raphael | Suspense | 300 | Quero Ler
-Kiren | Loops | Nd | 200 | Quero Ler
-La Muerte | Cleber | Drama | 200 | Quero Ler
-Limaozito | Cleber | Nd | 200 | Lido
-Morte | Linc | Nd | 200 | Lido
-Mulheres Que Correm Com Os Lobos | Clarissa Pinkola Estes | Nao Ficcao | 584 | Lido
-Nos | Zamiatin | Ficcao Cientifica | 304 | Lido
-O Heroi De Mil Faces | Joseph Campbell | Nd | 300 | Abandonado
-Ops | Lam | 200 | 100 | Abandonado
-Percy Jackson | John Jen | Fantasia | 304 | Lido
-Triangulo Das Bermudas | Deus | Geografia | 105 | Quero ler
+1984 | George Orwell | Distopia | 320 | Lido
+A Mao Esquerda Da Escuridao | Ursula Le Guin | Scifi | 320 | Lido
+Blade Runner | Pkd | Scifi | 304 | Lido
+Daisy Jones And The Six | Taylor Jk | Ficcao | 300 | Lido
+Eu, Robo | Asimov | Scifi | 300 | Lido
+Fundacao | Asimov | Scifi | 350 | Lido
+Fundacao E Imperio | Asimov | Scifi | 300 | Lido
+Mulheres, Mitos E Deusas | Martha Robles | Nao Ficcao | 400 | Lido
+Noites Brancas | Dostoievskis | Romance | 200 | Lido
+O Homem Do Castelo Alto | Pkd | Scifi | 1304 | Lido
+O Tempo Em Marte | Pkd | Scifi | 300 | Quero Ler
+Os 7 Maridos De Elevyn Hugo | Taylor Jk | Ficcao | 340 | Lido
+Os Despossuidos | Ursula Le Guin | Scifi | 320 | Quero Ler
+Perifericos | William Gibson | Scifi | 520 | Quero Ler
+Planeta Dos Macacos | Pierre Boulle | Scifi | 250 | Lido
+Psicose | Roberth Bloch | Suspense | 250 | Lido
+Segunda Fundacao | Asimov | Scifi | 300 | Lido
+Ubik | Pkd | Scifi | 300 | Lido
+Verity | Colleen Hoover | Suspense | 300 | Lido
+Vilao | Ve Showve Show | Fantasia | 300 | Lido
