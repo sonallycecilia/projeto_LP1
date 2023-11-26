@@ -1,5 +1,6 @@
 1984 | George Orwell | Distopia | 320 | Lido
 A Mao Esquerda Da Escuridao | Ursula Le Guin | Scifi | 320 | Lido
+As Cronicas De Narnia | Cs Lewis | Fantasia | 500 | Abandonado
 Blade Runner | Pkd | Scifi | 304 | Lido
 Daisy Jones And The Six | Taylor Jk | Ficcao | 300 | Lido
 Eu, Robo | Asimov | Scifi | 300 | Lido

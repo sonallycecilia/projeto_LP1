@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <locale.h>
-#include "utils/functions/functions.h"
+#include "functions/functions.h"
 
 struct st_livro livro;
 
