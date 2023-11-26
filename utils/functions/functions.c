@@ -86,7 +86,7 @@ void limpar_buffer()
     }
 }
 
-char *input_string(const char *txt) // sonally
+char *entrada_string(const char *txt) // sonally
 {
     char buffer[256];
     printf("%s: ", txt);
@@ -150,7 +150,7 @@ int menu()
            "= [4] - Favoritos                  =\n"
            "= [0] - Sair                       =\n"
            "====================================\n\n");
-    input = input_string("Digite a opcao desejada");
+    input = entrada_string("Digite a opcao desejada");
 
     if (strspn(input, "0123456789\n") == strlen(input)) // strspn conta quantos digitos de 0 a 9 existe no input e dps compara com o o tamanho da string, se for igual entao o input é valido
         op = atoi(input);                               // converte para inteiro
@@ -174,7 +174,7 @@ int status_menu()
            "====================================\n"
            "\n");
 
-    input = input_string("Selecione o Status do livro");
+    input = entrada_string("Selecione o Status do livro");
 
     if (strspn(input, "0123456789\n") == strlen(input))
         op = atoi(input);
@@ -200,7 +200,7 @@ int estante_menu()
            "====================================\n"
            "\n");
 
-    input = input_string("Digite a opcao desejada");
+    input = entrada_string("Digite a opcao desejada");
 
     if (strspn(input, "0123456789\n") == strlen(input))
         op = atoi(input);
@@ -225,7 +225,7 @@ int filtrar_menu()
            "= [5] - Filtrar por status         =\n"
            "= [0] - Voltar                     =\n"
            "====================================\n\n");
-    input = input_string("Digite a opcao desejada");
+    input = entrada_string("Digite a opcao desejada");
 
     if (strspn(input, "0123456789\n") == strlen(input))
         op = atoi(input);
@@ -250,7 +250,7 @@ int filtrar_status_menu()
            "====================================\n"
            "\n");
 
-    input = input_string("Selecione o Status do livro");
+    input = entrada_string("Selecione o Status do livro");
 
     if (strspn(input, "0123456789\n") == strlen(input))
         op = atoi(input);
@@ -275,7 +275,7 @@ int favorito_menu()
            "====================================\n"
            "\n");
 
-    input = input_string("Digite a opcao desejada");
+    input = entrada_string("Digite a opcao desejada");
 
     if (strspn(input, "0123456789\n") == strlen(input))
         op = atoi(input);
@@ -300,9 +300,9 @@ void cadastrar_livro()
 
         printf("\n--- CADASTRO DE LIVRO ---\n");
 
-        novo_livro->titulo = formatar_entrada(input_string("\nDigite o titulo do livro"));
+        novo_livro->titulo = formatar_entrada(entrada_string("\nDigite o titulo do livro"));
 
-        novo_livro->autor = formatar_entrada(input_string("Digite o nome do autor"));
+        novo_livro->autor = formatar_entrada(entrada_string("Digite o nome do autor"));
 
         struct st_livro *livro = buscar_livro(novo_livro->titulo, novo_livro->autor);
         if (livro != NULL)
@@ -312,7 +312,7 @@ void cadastrar_livro()
             return;
         }
 
-        novo_livro->genero = formatar_entrada(input_string("Digite o genero do livro"));
+        novo_livro->genero = formatar_entrada(entrada_string("Digite o genero do livro"));
 
         printf("Digite a quantidade de paginas do livro: ");
         scanf("%d", &novo_livro->qtd_paginas);
@@ -344,7 +344,7 @@ void cadastrar_livro()
 
         do
         {
-            input = input_string("\nOs dados inseridos estao corretos? ([1]Sim/[2]Nao)");
+            input = entrada_string("\nOs dados inseridos estao corretos? ([1]Sim/[2]Nao)");
             if (strspn(input, "0123456789\n") == strlen(input))
                 confirmar = atoi(input);
             else
@@ -426,7 +426,7 @@ void favorito_durante_cadastro(const char *status, struct st_livro *novo_livro)/
         char *input;
         do
         {
-            input = input_string("\nDeseja adicionar este livro aos favoritos? ([1]Sim/[2]Nao)");
+            input = entrada_string("\nDeseja adicionar este livro aos favoritos? ([1]Sim/[2]Nao)");
             if (strspn(input, "0123456789\n") == strlen(input))
                 fav = atoi(input);
             else
@@ -458,8 +458,8 @@ void pre_add_favorito() //faz uma checagem para ver se o livro já existe na est
     char *autor;
     struct st_livro *favorito = NULL;
 
-    titulo = formatar_entrada(input_string("Digite o titulo do livro"));
-    autor = formatar_entrada(input_string("Digite o autor do livro"));
+    titulo = formatar_entrada(entrada_string("Digite o titulo do livro"));
+    autor = formatar_entrada(entrada_string("Digite o autor do livro"));
     favorito = buscar_livro(titulo, autor);
     if (favorito == NULL)
         printf("\nLivro nao existe na estante!\n");
@@ -526,8 +526,8 @@ void pre_remover_favorito()
     char *titulo;
     char *autor;
 
-    titulo = formatar_entrada(input_string("Digite o titulo do livro"));
-    autor = formatar_entrada(input_string("Digite o autor do livro"));
+    titulo = formatar_entrada(entrada_string("Digite o titulo do livro"));
+    autor = formatar_entrada(entrada_string("Digite o autor do livro"));
     remover_favorito(titulo, autor);
 }
 
@@ -665,7 +665,7 @@ int escolher_livro_lista()
         atual = atual->proxPtr_livro;
         id++;
     }
-    input = input_string("\nSelecione o livro que deseja editar");
+    input = entrada_string("\nSelecione o livro que deseja editar");
 
     if (strspn(input, "0123456789\n") == strlen(input))
         op = atoi(input);
@@ -735,9 +735,9 @@ void remover_livro()
            "=           REMOVER LIVRO          =\n"
            "====================================\n\n");
 
-    titulo = formatar_entrada(input_string("Digite o titulo do livro que deseja remover"));
+    titulo = formatar_entrada(entrada_string("Digite o titulo do livro que deseja remover"));
 
-    autor = formatar_entrada(input_string("Qual o autor do livro? "));
+    autor = formatar_entrada(entrada_string("Qual o autor do livro? "));
 
     struct st_livro *livro_atual = lista_livros, *anterior = NULL;
 
@@ -791,8 +791,8 @@ void filtrar(int filtro)
         break;
 
     case 3:
-        titulo = formatar_entrada(input_string("Digite o titulo do livro"));
-        autor = formatar_entrada(input_string("Digite o nome do autor"));
+        titulo = formatar_entrada(entrada_string("Digite o titulo do livro"));
+        autor = formatar_entrada(entrada_string("Digite o nome do autor"));
         livro = buscar_livro(titulo, autor);
 
         if (livro == NULL)
@@ -897,7 +897,7 @@ void mostrar_generos_unicos() // listar generos disponiveis no db
 
     do
     {
-        input = input_string("Digite a opcao desejada");
+        input = entrada_string("Digite a opcao desejada");
 
         if (strspn(input, "0123456789\n") == strlen(input))
             escolha = atoi(input);
@@ -971,7 +971,7 @@ void mostrar_autores_unicos() // listar os autores disponiveis no db
     printf("====================================\n\n");
     do
     {
-        input = input_string("Digite a opcao desejada");
+        input = entrada_string("Digite a opcao desejada");
 
         if (strspn(input, "0123456789\n") == strlen(input))
             escolha = atoi(input);

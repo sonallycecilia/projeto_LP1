@@ -27,7 +27,7 @@ struct favoritos
 // genericos
 void carregar_dados(void);
 void limpar_buffer(void);
-char *input_string(const char *txt);
+char *entrada_string(const char *txt);
 char *formatar_entrada(char *str);
 struct st_livro *buscar_livro(char *titulo, char *autor);
 
