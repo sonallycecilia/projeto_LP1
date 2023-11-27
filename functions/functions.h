@@ -4,7 +4,7 @@
 #include <ctype.h>
 #include <stdbool.h>
 
-// struct
+// structs
 #ifndef LIVRO_H
 #define LIVRO_H
 
@@ -17,6 +17,7 @@ struct st_livro
     char *status;
     struct st_livro *proxPtr_livro;
 };
+
 struct favoritos
 {
     struct st_livro *livro;
@@ -60,7 +61,6 @@ void visualizar_livros(void);
 int contar_livros(void);
 int escolher_livro_lista(void);
 void editar_status(void);
-void sortear_livros(void);
 void remover_livro(void);
 
 // filtrar
