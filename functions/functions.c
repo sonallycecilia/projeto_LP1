@@ -679,11 +679,6 @@ void editar_status()
     int livro, count = 1;
     livro = escolher_livro_lista();
     struct st_livro *livro_escolhido = lista_livros;
-    if (livro == 1){
-        printf("livro 1");
-        return;
-    }
-
     while (count < livro){
          livro_escolhido = livro_escolhido->proxPtr_livro;
          count++;
@@ -718,11 +713,6 @@ void editar_status()
     } 
     else
         printf("Livro não encontrado");
-}
-
-void sortear_livros()
-{
-    // implementar (gi)
 }
 
 void remover_livro()
